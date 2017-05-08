@@ -11,6 +11,11 @@ namespace WZL.CSharp.SampleApp
     {
         static void Main(string[] args)
         {
+            HelloWorldTest();
+        }
+
+        private static void HelloWorldTest()
+        {
             Console.WriteLine("Hello World!");
 
             Console.Write("Podaj imię: ");
@@ -24,9 +29,11 @@ namespace WZL.CSharp.SampleApp
             // string message = String.Format("Witaj {0} {1}", firstname, lastname);
 
             // C# 6.0
-            string message = $"Witaj {firstname} {lastname}";
+            string message = $"Hello {firstname} {lastname} !";
 
             Console.WriteLine(message);
+
+            Console.WriteLine("Szkolenie C#");
 
             Device device = new Device();
         }
