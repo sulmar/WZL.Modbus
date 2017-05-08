@@ -14,6 +14,8 @@ namespace WZL.CSharp.SampleApp
             Device device = new Device();
             device.SlaveId = 1;
             device.SerialNumber = "S/N 123";
+            device.Model = "S4AO";
+            device.Manufacture = "Lumel";
 
             Console.WriteLine(device.SerialNumber);
 

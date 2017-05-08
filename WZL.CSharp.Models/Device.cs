@@ -24,30 +24,20 @@ namespace WZL.CSharp.Models
             }
         }
 
+        // Właściwość - wersja skrócona
+        public byte SlaveId { get; set; }
 
-        private byte slaveId;
+        public string Model { get; set; }
 
-        public byte SlaveId
-        {
-            get
-            {
-                return this.slaveId;
-            }
-
-            set
-            {
-                this.slaveId = value;
-            }
-        }
-
+        public string Manufacture { get; set; }
 
         public float GetMeasure()
         {
-            Console.WriteLine($"Connecting to {slaveId}");
+            Console.WriteLine($"Connecting to {SlaveId}");
 
             float result = 5.05f;
 
-            Console.WriteLine($"Result {result} from {slaveId}");
+            Console.WriteLine($"Result {result} from {SlaveId}");
 
             return result;
         }
