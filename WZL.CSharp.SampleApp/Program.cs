@@ -17,7 +17,16 @@ namespace WZL.CSharp.SampleApp
 
             string firstname = Console.ReadLine();
 
-            Console.WriteLine("Witaj " + firstname);
+            Console.Write("Podaj nazwisko: ");
+
+            string lastname = Console.ReadLine();
+
+            // string message = String.Format("Witaj {0} {1}", firstname, lastname);
+
+            // C# 6.0
+            string message = $"Witaj {firstname} {lastname}";
+
+            Console.WriteLine(message);
 
             Device device = new Device();
         }
