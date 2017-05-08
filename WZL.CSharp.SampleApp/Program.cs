@@ -12,8 +12,10 @@ namespace WZL.CSharp.SampleApp
         static void Main(string[] args)
         {
             Device device = new Device();
-            device.SetSlaveId(1);
-            device.SetSerialNumber("S/N 123");
+            device.SlaveId = 1;
+            device.SerialNumber = "S/N 123";
+
+            Console.WriteLine(device.SerialNumber);
 
             //device.slaveId = 1;
             //device.serialNumber = "S/N 123";

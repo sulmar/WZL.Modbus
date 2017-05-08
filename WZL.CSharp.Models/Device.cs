@@ -8,24 +8,38 @@ namespace WZL.CSharp.Models
 {
     public class Device
     {
-        private string serialNumber;
+        private string serialNumber; // back field
+
+        // właściwość (property)
+        public string SerialNumber
+        {
+            get
+            {
+                return this.serialNumber;
+            }
+
+            set
+            {
+                this.serialNumber = value;
+            }
+        }
+
 
         private byte slaveId;
 
-        public void SetSerialNumber(string serialNumber)
+        public byte SlaveId
         {
-            this.serialNumber = serialNumber;
+            get
+            {
+                return this.slaveId;
+            }
+
+            set
+            {
+                this.slaveId = value;
+            }
         }
 
-        public void SetSlaveId(byte slaveId)
-        {
-            this.slaveId = slaveId;
-        }
-
-        public byte GetSlaveId()
-        {
-            return this.slaveId;
-        }
 
         public float GetMeasure()
         {
