@@ -11,19 +11,30 @@ namespace WZL.CSharp.SampleApp
     {
         static void Main(string[] args)
         {
-            Device device = new Device();
-            device.SlaveId = 1;
-            device.SerialNumber = "S/N 123";
-            device.Model = "S4AO";
-            device.Manufacture = "Lumel";
+            float result = 5.06f;
+
+            float result2 = result;
+
+            result2 = result2 + 1;
+
+            // Inicjalizacja obiektu za pomocą inicjalizatorów
+            Device device = new Device
+            {
+                SlaveId = 2, 
+                Manufacture = "Siemens",
+                Model = "PD8",
+                SerialNumber = "S/N 001",
+            };
 
             Console.WriteLine(device.SerialNumber);
+
+            Device device2 = device;
+            device2.Manufacture = "Lumel";
 
             //device.slaveId = 1;
             //device.serialNumber = "S/N 123";
 
-            float result = device.GetMeasure();
-
+         
 
 
 
@@ -163,7 +174,6 @@ namespace WZL.CSharp.SampleApp
 
             Console.WriteLine("Szkolenie C#");
 
-            Device device = new Device();
         }
     }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WZL.CSharp.Models
 {
-    public class Device
+    public class Device : Object
     {
         private string serialNumber; // back field
 
@@ -24,12 +24,13 @@ namespace WZL.CSharp.Models
             }
         }
 
-        // Właściwość - wersja skrócona
+        // Właściwość - wersja skrócona (snippet: prop)
         public byte SlaveId { get; set; }
 
         public string Model { get; set; }
 
         public string Manufacture { get; set; }
+
 
         public float GetMeasure()
         {
@@ -40,6 +41,17 @@ namespace WZL.CSharp.Models
             Console.WriteLine($"Result {result} from {SlaveId}");
 
             return result;
+        }
+
+    
+        public Device()
+        {
+            this.Manufacture = "Lumel";
+        }
+
+        public Device(byte slaveId)
+        {
+            this.SlaveId = slaveId;
         }
 
     }
