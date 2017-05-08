@@ -22,6 +22,11 @@ namespace WZL.CSharp.Models
             this.slaveId = slaveId;
         }
 
+        public byte GetSlaveId()
+        {
+            return this.slaveId;
+        }
+
         public float GetMeasure()
         {
             Console.WriteLine($"Connecting to {slaveId}");
