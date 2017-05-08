@@ -8,5 +8,30 @@ namespace WZL.CSharp.Models
 {
     public class Device
     {
+        private string serialNumber;
+
+        private byte slaveId;
+
+        public void SetSerialNumber(string serialNumber)
+        {
+            this.serialNumber = serialNumber;
+        }
+
+        public void SetSlaveId(byte slaveId)
+        {
+            this.slaveId = slaveId;
+        }
+
+        public float GetMeasure()
+        {
+            Console.WriteLine($"Connecting to {slaveId}");
+
+            float result = 5.05f;
+
+            Console.WriteLine($"Result {result} from {slaveId}");
+
+            return result;
+        }
+
     }
 }
