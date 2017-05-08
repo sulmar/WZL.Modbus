@@ -11,6 +11,46 @@ namespace WZL.CSharp.SampleApp
     {
         static void Main(string[] args)
         {
+            VarTest();
+
+            AnonymuseType();
+
+            InitTest();
+
+            MethodsTest();
+
+            NullableTest();
+
+            ConvertTest();
+
+            TypesTest();
+
+            HelloWorldTest();
+        }
+
+        private static void VarTest()
+        {
+            var x = "Hello";
+
+            x = "Hello";
+
+            var device = new Device
+            {
+                SlaveId = 2,
+                Manufacture = "Siemens",
+                Model = "PD8",
+                SerialNumber = "S/N 001",
+            };
+        }
+
+        private static void AnonymuseType()
+        {
+            // Typ anonimowy
+            var device2 = new { DeviceId = 10, Model = "Siemens" };
+        }
+
+        private static void InitTest()
+        {
             float result = 5.06f;
 
             float result2 = result;
@@ -20,7 +60,7 @@ namespace WZL.CSharp.SampleApp
             // Inicjalizacja obiektu za pomocą inicjalizatorów
             Device device = new Device
             {
-                SlaveId = 2, 
+                SlaveId = 2,
                 Manufacture = "Siemens",
                 Model = "PD8",
                 SerialNumber = "S/N 001",
@@ -33,20 +73,6 @@ namespace WZL.CSharp.SampleApp
 
             //device.slaveId = 1;
             //device.serialNumber = "S/N 123";
-
-         
-
-
-
-            MethodsTest();
-
-            NullableTest();
-
-            ConvertTest();
-
-            TypesTest();
-
-            HelloWorldTest();
         }
 
         private static void MethodsTest()
