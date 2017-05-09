@@ -22,6 +22,7 @@ namespace WZL.Modbus.ConsoleClient
                 Console.WriteLine("Wybierz rodzaj pomiaru:");
                 Console.WriteLine("(T)emperature");
                 Console.WriteLine("(V)oltage");
+                Console.WriteLine("(B)inary");
 
                 response = Console.ReadKey(true);
 
@@ -29,11 +30,47 @@ namespace WZL.Modbus.ConsoleClient
                 {
                     case 'T': GetTemperatureTest(); break;
                     case 'V': GetVoltageTest(); break;
+                    case 'B': SetBinaryTest(); break;
                 }
             }
             while (response.Key != ConsoleKey.Escape);
 
 
+        }
+
+        private static void SetBinaryTest()
+        {
+            var hostname = ConfigurationManager.AppSettings["hostname"];
+            var port = int.Parse(ConfigurationManager.AppSettings["port"]);
+            var slaveId = byte.Parse(ConfigurationManager.AppSettings["SM4"]);
+
+            ushort startAddress = 2200;
+
+            Console.WriteLine($"Connecting to {hostname}:{port}");
+
+            try
+            {
+                using (var client = new TcpClient(hostname, port))
+                using (var master = ModbusIpMaster.CreateIp(client))
+                {
+                    Console.WriteLine("Connected.");
+
+                    // Przykładowe wartości
+                    bool[] outputs = { true, false, true, true };
+
+                    master.WriteMultipleCoils(slaveId, startAddress, outputs);
+
+                    bool[] inputs = master.ReadCoils(slaveId, startAddress, 4);
+
+                    Console.WriteLine(String.Join(", ", inputs));
+
+                }
+
+            }
+            catch (SocketException e)
+            {
+                Console.WriteLine("Błąd połączenia. Sprawdź okablowanie oraz konfigurację.");
+            }
         }
 
         private static void GetVoltageTest()
