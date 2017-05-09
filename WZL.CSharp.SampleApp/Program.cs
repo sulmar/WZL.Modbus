@@ -11,6 +11,8 @@ namespace WZL.CSharp.SampleApp
     {
         static void Main(string[] args)
         {
+            ArrayTest();
+
             VarTest();
 
             AnonymuseType();
@@ -26,6 +28,32 @@ namespace WZL.CSharp.SampleApp
             TypesTest();
 
             HelloWorldTest();
+        }
+
+        private static void ArrayTest()
+        {
+            // Utworzenie tablicy o podanej ilości elementów
+            int[] values = new int[4];
+
+            values[0] = 10;
+            values[2] = 255;
+
+            // Wyświetlenie wybranej wartości elementu
+            Console.WriteLine(values[2]);
+
+            // Wyświetlenie tablicy jako ciągu tekstowego
+            var message = String.Join(", ", values);
+            Console.WriteLine(message);
+
+            // Przejście po wszystkich elementach tablicy
+            foreach (var value in values)
+            {
+                Console.WriteLine(value);
+            }
+
+            // Utworzenie tablicy za pomocą inicjalizatora
+
+            int[] weights = { 20, 0, 255, 0 };
         }
 
         private static void VarTest()
