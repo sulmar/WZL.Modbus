@@ -32,23 +32,31 @@ namespace WZL.Modbus.ConsoleClient
             // Określa zakres działania obiektu i utomatycznie wywołanie metodę Dispose
             // UWAGA: using można użyć tylko dla obiektów, które implementują interfejs IDisposable
 
-            using (var client = new TcpClient(hostname, port))
-            using (var master = ModbusIpMaster.CreateIp(client))
+            try
             {
-                Console.WriteLine("Connected.");
-
-                Console.WriteLine("Press any key to exit.");
-                
-                while (!Console.KeyAvailable)
+                using (var client = new TcpClient(hostname, port))
+                using (var master = ModbusIpMaster.CreateIp(client))
                 {
-                    ushort[] inputs = master.ReadInputRegisters(slaveId, startAddress, numRegisters);
+                    Console.WriteLine("Connected.");
 
-                    float temperature = Converter.ConvertToFloat(inputs[0], inputs[1]);
+                    Console.WriteLine("Press any key to exit.");
 
-                    Console.WriteLine($"Temperature: {temperature} °C");
+                    while (!Console.KeyAvailable)
+                    {
+                        ushort[] inputs = master.ReadInputRegisters(slaveId, startAddress, numRegisters);
 
-                    Thread.Sleep(1000);
+                        float temperature = Converter.ConvertToFloat(inputs[0], inputs[1]);
+
+                        Console.WriteLine($"Temperature: {temperature} °C");
+
+                        Thread.Sleep(1000);
+                    }
                 }
+
+            }
+            catch(SocketException e)
+            {
+                Console.WriteLine("Błąd połączenia. Sprawdź okablowanie oraz konfigurację.");
             }
 
 
