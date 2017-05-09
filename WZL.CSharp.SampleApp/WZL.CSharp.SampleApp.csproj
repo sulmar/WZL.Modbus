@@ -45,8 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculator.cs" />
+    <Compile Include="IAnalogInput.cs" />
+    <Compile Include="N30H.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LumelVoltage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

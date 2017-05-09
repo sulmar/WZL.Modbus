@@ -16,16 +16,16 @@ namespace WZL.CSharp.SampleApp
 
         }
 
-        private void Print(int x)
+        public static void Print(int x)
         {
             Console.WriteLine(x);
         }
 
 
         // Przeciążanie metod
-        public int Add(int x, int y)
+        public static int Add(int x, int y)
         {
-            Init();
+          //  Init();
 
             int result = x + y;
 

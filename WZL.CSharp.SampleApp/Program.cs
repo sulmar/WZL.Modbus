@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using WZL.CSharp.Models;
 
@@ -11,6 +12,31 @@ namespace WZL.CSharp.SampleApp
     {
         static void Main(string[] args)
         {
+
+
+            List<IAnalogInput> devices = new List<IAnalogInput>
+                {
+                    new N30H(),
+                    new Siemens(),
+                    new Siemens()
+                };
+
+            
+
+            while (true)
+            {
+
+                foreach (IAnalogInput device in devices)
+                {
+                    var result = device.Get(15);
+                    Console.WriteLine(result);
+
+                    Thread.Sleep(1000);
+                }
+                
+
+            }
+
             ArrayTest();
 
             VarTest();
@@ -105,8 +131,12 @@ namespace WZL.CSharp.SampleApp
 
         private static void MethodsTest()
         {
+            Calculator.Print(100);
+
+            var result2 = Calculator.Add(10, 20);
+
             Calculator calculator = new Calculator();
-            int result = calculator.Add(10, 20);
+            // int result = calculator.Add(10, 20);
 
             calculator.Multiply(10, 2, 3);
         }
