@@ -14,9 +14,26 @@ namespace WZL.Modbus.ConsoleClient
     {
         static void Main(string[] args)
         {
-            GetVoltageTest();
+            ConsoleKeyInfo response;
 
-            GetTemperatureTest();
+            do
+            {
+                Console.WriteLine();
+                Console.WriteLine("Wybierz rodzaj pomiaru:");
+                Console.WriteLine("(T)emperature");
+                Console.WriteLine("(V)oltage");
+
+                response = Console.ReadKey(true);
+
+                switch (response.KeyChar)
+                {
+                    case 'T': GetTemperatureTest(); break;
+                    case 'V': GetVoltageTest(); break;
+                }
+            }
+            while (response.Key != ConsoleKey.Escape);
+
+
         }
 
         private static void GetVoltageTest()
@@ -29,9 +46,6 @@ namespace WZL.Modbus.ConsoleClient
             ushort numRegisters = 2;
 
             Console.WriteLine($"Connecting to {hostname}:{port}");
-
-            // Określa zakres działania obiektu i utomatycznie wywołanie metodę Dispose
-            // UWAGA: using można użyć tylko dla obiektów, które implementują interfejs IDisposable
 
             try
             {
@@ -48,7 +62,7 @@ namespace WZL.Modbus.ConsoleClient
 
                         float voltage = Converter.ConvertToFloat(inputs[0], inputs[1]);
 
-                        Console.WriteLine($"Voltage: {voltage} V");
+                        Console.WriteLine($"Voltage : {voltage} V");
 
                         Thread.Sleep(1000);
                     }
