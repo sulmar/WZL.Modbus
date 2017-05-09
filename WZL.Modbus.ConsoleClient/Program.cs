@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace WZL.Modbus.ConsoleClient
@@ -34,11 +35,20 @@ namespace WZL.Modbus.ConsoleClient
             using (var client = new TcpClient(hostname, port))
             using (var master = ModbusIpMaster.CreateIp(client))
             {
-                ushort[] inputs = master.ReadInputRegisters(slaveId, startAddress, numRegisters);
+                Console.WriteLine("Connected.");
 
-                float temperature = Converter.ConvertToFloat(inputs[0], inputs[1]);
+                Console.WriteLine("Press any key to exit.");
+                
+                while (!Console.KeyAvailable)
+                {
+                    ushort[] inputs = master.ReadInputRegisters(slaveId, startAddress, numRegisters);
 
-                Console.WriteLine($"Temperature: {temperature} °C");
+                    float temperature = Converter.ConvertToFloat(inputs[0], inputs[1]);
+
+                    Console.WriteLine($"Temperature: {temperature} °C");
+
+                    Thread.Sleep(1000);
+                }
             }
 
 
