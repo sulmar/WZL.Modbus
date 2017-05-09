@@ -58,14 +58,19 @@ namespace WZL.Modbus.ConsoleClient
                     // Przykładowe wartości
                     bool[] outputs = { true, false, true, true };
 
-                    // Zapis pojedynczego rejestru
-                   //  master.WriteSingleCoil(slaveId, startAddress, false);
+
+                    // startAddress = (ushort)(startAddress + 2);
+                    // Zapis pojedynczego rejestru 
+                    // master.WriteSingleCoil(slaveId, startAddress, true);
+                    // Uwaga: nie działa
 
                     // Zapis wielu rejestrów
                     master.WriteMultipleCoils(slaveId, startAddress, outputs);
 
+                    // Odczyt wielu rejestrów
                     bool[] inputs = master.ReadCoils(slaveId, startAddress, 4);
 
+                    // Wyświetlenie
                     Console.WriteLine(String.Join(", ", inputs));
 
                 }
