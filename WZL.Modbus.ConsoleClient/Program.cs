@@ -51,7 +51,7 @@ namespace WZL.Modbus.ConsoleClient
 
             // Napięcie zmienne L1 (2 rejestry 16-bitowe)
             ushort startAddress = 7000;
-            ushort numRegisters = 14;
+            ushort numRegisters = 60;
 
             Console.WriteLine($"Connecting to {hostname}:{port}");
 
@@ -67,14 +67,17 @@ namespace WZL.Modbus.ConsoleClient
                         ushort[] inputs = master.ReadHoldingRegisters(slaveId, startAddress, numRegisters);
 
                         var voltageL1 = Converter.ConvertToFloat(inputs);
-                        var amperL1 = Converter.ConvertToFloat(inputs, 2);
-                        var activePowerL1 = Converter.ConvertToFloat(inputs, 4);
-                        var reactivePowerL1 = Converter.ConvertToFloat(inputs, 6);
-                        var upparentPowerL1 = Converter.ConvertToFloat(inputs, 8);
-                        var activePowerFactorL1 = Converter.ConvertToFloat(inputs, 10);
-                        var faseTgFactorL1 = Converter.ConvertToFloat(inputs, 12);
+                        var ampL1 = Converter.ConvertToFloat(inputs, 2);
+                        var activepowerL1 = Converter.ConvertToFloat(inputs, 4);
+                        var reactivepowerL1 = Converter.ConvertToFloat(inputs, 6);
+                        var apparentpowerL1 = Converter.ConvertToFloat(inputs, 8);
+                        var powerfactorL1 = Converter.ConvertToFloat(inputs, 10);
+                        var phasefactorL1 = Converter.ConvertToFloat(inputs, 12);
+                        var frequency = Converter.ConvertToFloat(inputs, 56);
+                        if (apparentpowerL1 == 0) powerfactorL1 = 0;
+                        if (activepowerL1 == 0) phasefactorL1 = 0;
 
-                        Console.WriteLine($"L1: {voltageL1}V {amperL1}A {activePowerL1}Var");
+                        Console.WriteLine($"L1. AC Voltage: {voltageL1} V; Amp: {ampL1} A; Active power: {activepowerL1} W; Reactive power: {reactivepowerL1} VAR; Apparent power: {apparentpowerL1} VA; Power factor: {powerfactorL1}; Phase factor: {phasefactorL1}; Frequency: {frequency} Hz");
 
                         Thread.Sleep(1000);
 
