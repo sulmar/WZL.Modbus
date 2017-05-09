@@ -51,7 +51,7 @@ namespace WZL.Modbus.ConsoleClient
             ushort startAddress = 4100;
 
             // Zadana wartość
-            float voltage = 3.01f;
+            float voltage = 3.7f;
 
             // Konwersja
             ushort output = (ushort) (voltage * 100);
@@ -70,9 +70,9 @@ namespace WZL.Modbus.ConsoleClient
                     var input = master.ReadInputRegisters(slaveId, startAddress, 1);
 
                     // Konwersja
-                    float volt = input[0] / 100;
+                    float volt = input[0] / 100f;
 
-                    Console.WriteLine($"Napięcie: {volt}");
+                    Console.WriteLine($"Napięcie: {volt}V");
 
 
                 }
