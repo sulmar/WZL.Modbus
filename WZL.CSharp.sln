@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WZL.CSharp.SampleApp", "WZL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WZL.CSharp.Models", "WZL.CSharp.Models\WZL.CSharp.Models.csproj", "{20263C73-FC71-4BDA-9FF2-40A64EEFC929}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WZL.Modbus.ConsoleClient", "WZL.Modbus.ConsoleClient\WZL.Modbus.ConsoleClient.csproj", "{9013E154-743E-4D2B-BBDF-03C8C3386420}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{20263C73-FC71-4BDA-9FF2-40A64EEFC929}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20263C73-FC71-4BDA-9FF2-40A64EEFC929}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20263C73-FC71-4BDA-9FF2-40A64EEFC929}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9013E154-743E-4D2B-BBDF-03C8C3386420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9013E154-743E-4D2B-BBDF-03C8C3386420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9013E154-743E-4D2B-BBDF-03C8C3386420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9013E154-743E-4D2B-BBDF-03C8C3386420}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
