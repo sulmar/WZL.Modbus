@@ -14,6 +14,7 @@ namespace WZL.Modbus.ConsoleClient
     {
         static void Main(string[] args)
         {
+
             ConsoleKeyInfo response;
 
             do
@@ -23,6 +24,7 @@ namespace WZL.Modbus.ConsoleClient
                 Console.WriteLine("(T)emperature");
                 Console.WriteLine("(V)oltage");
                 Console.WriteLine("(B)inary");
+                Console.WriteLine("(A)nalog");
 
                 response = Console.ReadKey(true);
 
@@ -31,9 +33,56 @@ namespace WZL.Modbus.ConsoleClient
                     case 'T': GetTemperatureTest(); break;
                     case 'V': GetVoltageTest(); break;
                     case 'B': SetBinaryTest(); break;
+                    case 'A': SetAnalogTest(); break;
                 }
             }
             while (response.Key != ConsoleKey.Escape);
+
+
+        }
+
+        private static void SetAnalogTest()
+        {
+            var hostname = ConfigurationManager.AppSettings["hostname"];
+            var port = int.Parse(ConfigurationManager.AppSettings["port"]);
+            var slaveId = byte.Parse(ConfigurationManager.AppSettings["S4AO"]);
+
+            // Wyjście analogowe nr 1
+            ushort startAddress = 4100;
+
+            // Zadana wartość
+            float voltage = 3.01f;
+
+            // Konwersja
+            ushort output = (ushort) (voltage * 100);
+
+            Console.WriteLine($"Connecting to {hostname}:{port}");
+
+            try
+            {
+                using (var client = new TcpClient(hostname, port))
+                using (var master = ModbusIpMaster.CreateIp(client))
+                {
+                    Console.WriteLine("Connected.");
+
+                    master.WriteSingleRegister(slaveId, startAddress, output);
+
+                    var input = master.ReadInputRegisters(slaveId, startAddress, 1);
+
+                    // Konwersja
+                    float volt = input[0] / 100;
+
+                    Console.WriteLine($"Napięcie: {volt}");
+
+
+                }
+            }
+            catch (SocketException e)
+            {
+                Console.WriteLine("Błąd połączenia. Sprawdź okablowanie oraz konfigurację.");
+            }
+
+
 
 
         }
@@ -106,7 +155,7 @@ namespace WZL.Modbus.ConsoleClient
                     {
                         ushort[] inputs = master.ReadInputRegisters(slaveId, startAddress, numRegisters);
 
-                        float voltage = Converter.ConvertToFloat(inputs[0], inputs[1]);
+                        float voltage = Converter.ConvertToFloat(inputs);
 
                         Console.WriteLine($"Voltage : {voltage} V");
 
@@ -149,7 +198,7 @@ namespace WZL.Modbus.ConsoleClient
                     {
                         ushort[] inputs = master.ReadInputRegisters(slaveId, startAddress, numRegisters);
 
-                        float temperature = Converter.ConvertToFloat(inputs[0], inputs[1]);
+                        float temperature = Converter.ConvertToFloat(inputs);
 
                         Console.WriteLine($"Temperature: {temperature} °C");
 
