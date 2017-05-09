@@ -25,6 +25,7 @@ namespace WZL.Modbus.ConsoleClient
                 Console.WriteLine("(V)oltage");
                 Console.WriteLine("(B)inary");
                 Console.WriteLine("(A)nalog");
+                Console.WriteLine("(N)etwork");
 
                 response = Console.ReadKey(true);
 
@@ -34,9 +35,57 @@ namespace WZL.Modbus.ConsoleClient
                     case 'V': GetVoltageTest(); break;
                     case 'B': SetBinaryTest(); break;
                     case 'A': SetAnalogTest(); break;
+                    case 'N': GetACVoltageTest(); break;
                 }
             }
             while (response.Key != ConsoleKey.Escape);
+
+
+        }
+
+        private static void GetACVoltageTest()
+        {
+            var hostname = ConfigurationManager.AppSettings["hostname"];
+            var port = int.Parse(ConfigurationManager.AppSettings["port"]);
+            var slaveId = byte.Parse(ConfigurationManager.AppSettings["N10"]);
+
+            // Napięcie zmienne L1 (2 rejestry 16-bitowe)
+            ushort startAddress = 7000;
+            ushort numRegisters = 14;
+
+            Console.WriteLine($"Connecting to {hostname}:{port}");
+
+            try
+            {
+                using (var client = new TcpClient(hostname, port))
+                using (var master = ModbusIpMaster.CreateIp(client))
+                {
+                    Console.WriteLine("Connected.");
+
+                    while (!Console.KeyAvailable)
+                    {
+                        ushort[] inputs = master.ReadHoldingRegisters(slaveId, startAddress, numRegisters);
+
+                        var voltageL1 = Converter.ConvertToFloat(inputs);
+                        var amperL1 = Converter.ConvertToFloat(inputs, 2);
+                        var activePowerL1 = Converter.ConvertToFloat(inputs, 4);
+                        var reactivePowerL1 = Converter.ConvertToFloat(inputs, 6);
+                        var upparentPowerL1 = Converter.ConvertToFloat(inputs, 8);
+                        var activePowerFactorL1 = Converter.ConvertToFloat(inputs, 10);
+                        var faseTgFactorL1 = Converter.ConvertToFloat(inputs, 12);
+
+                        Console.WriteLine($"L1: {voltageL1}V {amperL1}A {activePowerL1}Var");
+
+                        Thread.Sleep(1000);
+
+                    }
+                }
+            }
+            catch (SocketException e)
+            {
+                Console.WriteLine("Błąd połączenia. Sprawdź okablowanie oraz konfigurację.");
+            }
+
 
 
         }

@@ -9,10 +9,10 @@ namespace WZL.Modbus.ConsoleClient
     // https://pl.wikipedia.org/wiki/IEEE_754
     public static class Converter
     {
-        public static float ConvertToFloat(ushort[] registers)
+        public static float ConvertToFloat(ushort[] registers, int index = 0)
         {
-            var lRegister = registers[0];
-            var hRegister = registers[1];
+            var lRegister = registers[index];
+            var hRegister = registers[index+1];
 
             byte l0 = (byte) lRegister;
             byte l1 = (byte)(lRegister >> 8);
@@ -38,5 +38,8 @@ namespace WZL.Modbus.ConsoleClient
 
 
         }
+
+
+      
     }
 }
