@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BD18E523-B6E3-4FEF-9FF5-9010157B6E71}</ProjectGuid>
+    <ProjectGuid>{07B4BFC0-DCA7-4824-B05A-A5D8953228E7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WZL.Services</RootNamespace>
-    <AssemblyName>WZL.Services</AssemblyName>
+    <RootNamespace>WZL.MockServices</RootNamespace>
+    <AssemblyName>WZL.MockServices</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,8 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAnalogInput.cs" />
+    <Compile Include="MockVoltageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WZL.Services\WZL.Services.csproj">
+      <Project>{bd18e523-b6e3-4fef-9ff5-9010157b6e71}</Project>
+      <Name>WZL.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

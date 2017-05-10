@@ -104,6 +104,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WZL.MockServices\WZL.MockServices.csproj">
+      <Project>{07B4BFC0-DCA7-4824-B05A-A5D8953228E7}</Project>
+      <Name>WZL.MockServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WZL.Services\WZL.Services.csproj">
       <Project>{bd18e523-b6e3-4fef-9ff5-9010157b6e71}</Project>
       <Name>WZL.Services</Name>
