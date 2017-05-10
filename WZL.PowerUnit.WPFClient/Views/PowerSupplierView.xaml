@@ -4,8 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WZL.PowerUnit.WPFClient.Views"
+        xmlns:vm="clr-namespace:WZL.PowerUnit.WPFClient.ViewModels"
         mc:Ignorable="d"
         Title="PowerSupplierView" Height="300" Width="300">
+
+    <Window.DataContext>
+        <vm:PowerSupplierViewModel />
+    </Window.DataContext>
     
     
     <Grid>
@@ -18,16 +23,21 @@
         <GroupBox Header="Zasilacz" >
             <StackPanel>
                 <Label Content="Napięcie" />
-                <TextBox Text="5 V" />
+                <Label Content="{Binding Voltage}" />
+                
+                <!--<TextBox Text="{Binding Voltage}" />-->
+                
                 <Label Content="Prąd" />
-                <TextBox Text="4 A" />
+                <TextBox Text="{Binding Current}" />
                 <Label Content="Moc" />
-                <TextBox Text="20 W" />
+                <TextBox Text="{Binding Power}" />
             </StackPanel>
+            
         </GroupBox>
 
         <GroupBox Header="Nastawy" Grid.Column="1">
             <StackPanel>
+                
                 
                 <Label Content="Napięcie" />
                 <TextBox Text="5 V" />
@@ -36,7 +46,11 @@
                 <Label Content="Prąd" />
                 <TextBox Text="4 A" />
                 <Slider Minimum="0" Maximum="60" />
-              
+
+                <DockPanel>
+                    <Button Width="100" Content="Ustaw" Margin="5" />
+                    <Button Content="Włącz" Margin="5"/>
+                </DockPanel>
             </StackPanel>
         </GroupBox>
         

@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\PowerSupplierViewModel.cs" />
     <Compile Include="Views\PowerSupplierView.xaml.cs">
       <DependentUpon>PowerSupplierView.xaml</DependentUpon>
     </Compile>

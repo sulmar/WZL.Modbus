@@ -11,12 +11,12 @@
     
     <StackPanel>
 
+
         <Button 
             Background="Green"
             Foreground="White"
             Width="200" 
             Height="50">
-
 
             <StackPanel>
             <Slider Width="200" />
