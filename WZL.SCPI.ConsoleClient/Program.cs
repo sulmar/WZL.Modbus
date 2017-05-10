@@ -27,6 +27,10 @@ namespace WZL.SCPI.ConsoleClient
             {
 
                 string command = Console.ReadLine();
+
+                if (command == "exit")
+                    break;
+
                 byte[] data = Encoding.ASCII.GetBytes(command);
 
                 using (var client = new TcpClient(hostname, port))
@@ -41,13 +45,16 @@ namespace WZL.SCPI.ConsoleClient
 
                     stream.Write(lf, 0, 1);
 
-                    byte[] buffer = new byte[128];
+                    if (command.IndexOf("?") >= 0)
+                    {
+                        byte[] buffer = new byte[128];
 
-                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
+                        int bytesRead = stream.Read(buffer, 0, buffer.Length);
 
-                    string response = Encoding.ASCII.GetString(buffer);
+                        string response = Encoding.ASCII.GetString(buffer);
 
-                    Console.WriteLine($"Response: {response}");
+                        Console.WriteLine($"Response: {response}");
+                    }
                 }
 
             }
