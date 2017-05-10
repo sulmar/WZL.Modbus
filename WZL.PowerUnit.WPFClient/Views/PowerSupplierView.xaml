@@ -1,0 +1,44 @@
+﻿<Window x:Class="WZL.PowerUnit.WPFClient.Views.PowerSupplierView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WZL.PowerUnit.WPFClient.Views"
+        mc:Ignorable="d"
+        Title="PowerSupplierView" Height="300" Width="300">
+    
+    
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <GroupBox Header="Zasilacz" >
+            <StackPanel>
+                <Label Content="Napięcie" />
+                <TextBox Text="5 V" />
+                <Label Content="Prąd" />
+                <TextBox Text="4 A" />
+                <Label Content="Moc" />
+                <TextBox Text="20 W" />
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Header="Nastawy" Grid.Column="1">
+            <StackPanel>
+                
+                <Label Content="Napięcie" />
+                <TextBox Text="5 V" />
+                <Slider Minimum="0" Maximum="40" />
+
+                <Label Content="Prąd" />
+                <TextBox Text="4 A" />
+                <Slider Minimum="0" Maximum="60" />
+              
+            </StackPanel>
+        </GroupBox>
+        
+    </Grid>
+</Window>
