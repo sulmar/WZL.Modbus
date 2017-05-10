@@ -8,4 +8,6 @@
 | wyjścia analogowe  | S4AO  | 6  |   |   |
 | miernik parametrów sieci  | N10  | 7  |   |   |
 
-
+## Dokumentacja
+Automatik Programming Guide ModBus & SCPI
+http://www.elektroautomatik.de/en/interfaces-ifab.html
