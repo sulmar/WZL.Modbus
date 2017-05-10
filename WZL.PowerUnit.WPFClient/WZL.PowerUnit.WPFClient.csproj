@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\PowerSupplierViewModel.cs" />
     <Compile Include="Views\PowerSupplierView.xaml.cs">
       <DependentUpon>PowerSupplierView.xaml</DependentUpon>
@@ -104,6 +105,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WZL.LumelServices\WZL.LumelServices.csproj">
+      <Project>{b7410939-5ff2-40bb-8c04-90d2549e1c3f}</Project>
+      <Name>WZL.LumelServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WZL.MockServices\WZL.MockServices.csproj">
       <Project>{07B4BFC0-DCA7-4824-B05A-A5D8953228E7}</Project>
       <Name>WZL.MockServices</Name>
