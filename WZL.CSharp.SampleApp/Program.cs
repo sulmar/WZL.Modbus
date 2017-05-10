@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -12,30 +13,9 @@ namespace WZL.CSharp.SampleApp
     {
         static void Main(string[] args)
         {
+            LoadFileTest();
 
-
-            List<IAnalogInput> devices = new List<IAnalogInput>
-                {
-                    new N30H(),
-                    new Siemens(),
-                    new Siemens()
-                };
-
-            
-
-            while (true)
-            {
-
-                foreach (IAnalogInput device in devices)
-                {
-                    var result = device.Get(15);
-                    Console.WriteLine(result);
-
-                    Thread.Sleep(1000);
-                }
-                
-
-            }
+            InterfaceTest();
 
             ArrayTest();
 
@@ -54,6 +34,48 @@ namespace WZL.CSharp.SampleApp
             TypesTest();
 
             HelloWorldTest();
+        }
+
+        private static void LoadFileTest()
+        {
+            // Załadowanie całego pliku do zmiennej tekstowej
+            string content = File.ReadAllText("sample1.csv");
+
+            Console.WriteLine(content);
+
+            // Przetwarzanie linia po linii
+            var lines = File.ReadAllLines("sample1.csv");
+
+            foreach (string line in lines)
+            {
+                Console.WriteLine(line);
+            }
+        }
+
+        private static void InterfaceTest()
+        {
+            List<IAnalogInput> devices = new List<IAnalogInput>
+                {
+                    new N30H(),
+                    new Siemens(),
+                    new Siemens()
+                };
+
+
+
+            while (true)
+            {
+
+                foreach (IAnalogInput device in devices)
+                {
+                    var result = device.Get(15);
+                    Console.WriteLine(result);
+
+                    Thread.Sleep(1000);
+                }
+
+
+            }
         }
 
         private static void ArrayTest()
