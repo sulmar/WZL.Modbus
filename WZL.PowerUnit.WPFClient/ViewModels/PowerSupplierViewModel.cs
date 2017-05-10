@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WZL.Services;
 
 namespace WZL.PowerUnit.WPFClient.ViewModels
 {
@@ -14,13 +15,13 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
         public float Power { get; set; }
 
+        private IAnalogInput VoltageService;
+
         public PowerSupplierViewModel()
         {
-            Voltage = 2.4f;
+            VoltageService = new MockVoltageService();
 
-            Current = 3.0f;
-
-            Power = 15.0f;
+            Voltage = VoltageService.Get();
         }
 
     }
