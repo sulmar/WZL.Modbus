@@ -13,6 +13,8 @@ namespace WZL.CSharp.SampleApp
     {
         static void Main(string[] args)
         {
+            IfTest();
+
             LoadFileTest();
 
             InterfaceTest();
@@ -34,6 +36,20 @@ namespace WZL.CSharp.SampleApp
             TypesTest();
 
             HelloWorldTest();
+        }
+
+        private static void IfTest()
+        {
+            int x = 15;
+
+            int response = x > 10 ? 10 : x;
+
+            // ekwiwalent
+
+            if (x > 10)
+                response = 10;
+            else
+                response = x;
         }
 
         private static void LoadFileTest()
