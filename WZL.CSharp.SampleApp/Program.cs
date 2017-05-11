@@ -14,7 +14,7 @@ namespace WZL.CSharp.SampleApp
     {
         static void Main(string[] args)
         {
-            ListTest();
+            ArrayListTest();
 
             IfTest();
 
@@ -41,10 +41,11 @@ namespace WZL.CSharp.SampleApp
             HelloWorldTest();
         }
 
-        private static void ListTest()
+        private static void ArrayListTest()
         {
-
-            var floatArray = new float[1000] ;
+            //var floatArray = new float[1000] ;
+            //floatArray[0] = 5.05f;
+            //floatArray[1] = "Hello";
 
 
             ArrayList measures = new ArrayList(3);
@@ -54,13 +55,38 @@ namespace WZL.CSharp.SampleApp
             measures.Add(4.35f);
             measures.Add(4.25f);
             measures.Add(4.15f);
+            measures.Add("Hello");
 
             foreach (var measure in measures)
             {
                 Console.WriteLine(measure);
+
+                var result = (float) measure * 1.05f;
             }
 
         }
+
+        private static void ListTest()
+        {
+            // Lista generyczna
+            var measures = new List<float>();
+
+            measures.Add(4.05f);
+            measures.Add(4.15f);
+            measures.Add(4.35f);
+            measures.Add(4.25f);
+            measures.Add(4.15f);
+            // measures.Add("Hello");
+
+            foreach (var measure in measures)
+            {
+                Console.WriteLine(measure);
+
+                var result = (float)measure * 1.05f;
+            }
+
+        }
+
 
         private static void IfTest()
         {
