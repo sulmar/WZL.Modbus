@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WZL.MockServices", "WZL.Moc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WZL.LumelServices", "WZL.LumelServices\WZL.LumelServices.csproj", "{B7410939-5FF2-40BB-8C04-90D2549E1C3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WZL.EAServices", "WZL.EAServices\WZL.EAServices.csproj", "{67D7C002-47D9-488A-B808-88B6CB1FECD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{B7410939-5FF2-40BB-8C04-90D2549E1C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7410939-5FF2-40BB-8C04-90D2549E1C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7410939-5FF2-40BB-8C04-90D2549E1C3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67D7C002-47D9-488A-B808-88B6CB1FECD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67D7C002-47D9-488A-B808-88B6CB1FECD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67D7C002-47D9-488A-B808-88B6CB1FECD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67D7C002-47D9-488A-B808-88B6CB1FECD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
