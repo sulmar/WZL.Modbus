@@ -28,17 +28,30 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
 
 
-        public float Current { get; set; }
+        private float current;
+
+        public float Current
+        {
+            get { return current; }
+            set
+            {
+                current = value;
+                OnPropertyChanged("Current");
+            }
+        }
+
 
         public float Power { get; set; }
 
         private IAnalogInput VoltageService;
+        private IAnalogInput CurrentService;
 
         private Timer timer;
 
         public PowerSupplierViewModel()
         {
             VoltageService = new N30HVoltageService();
+            CurrentService = new N30UCurrentService();
 
             timer = new Timer(1000);
 
@@ -50,6 +63,7 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             Voltage = VoltageService.Get();
+            Current = CurrentService.Get();
         }
     }
 }
