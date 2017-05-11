@@ -3,13 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WZL.CSharp.Models;
 
 namespace WZL.CSharp.SampleApp
 {
+    class Parameters
+    {
+        public float Current { get; set; }
+
+        public float Volt { get; set; }
+
+        public float Power { get; set; }
+
+        public float Ratio { get; set; }
+    }
+
+
     internal class Calculator
     {
-        
+        public void Calculate(string model, float currentValue, float volt, float power)
+        {
+            
+        }
 
+        public void Calculate(Parameters parameters)
+        {
+
+        }
+
+        public void Calculate(Device device, float volt)
+        {
+            Console.WriteLine($"Connecting to {device.SlaveId}");
+
+            device.CurrentValue = volt * 2f;
+
+        }
 
         private void Init()
         {

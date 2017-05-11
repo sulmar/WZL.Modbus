@@ -14,6 +14,29 @@ namespace WZL.CSharp.SampleApp
     {
         static void Main(string[] args)
         {
+            Device device = new Device();
+            Calculator calculator = new Calculator();
+
+            calculator.Calculate(device, 10);
+
+            calculator.Calculate(device.Model, device.CurrentValue, 10, 5);
+
+            var parameters = new Parameters { Current = 5, Power = 3.0f, Volt = 5 };
+
+            calculator.Calculate(parameters);
+
+
+            Device device2 = device;
+
+            calculator.Calculate(device2, 5);
+
+
+            DynamicTest();
+
+            GenericClassTest();
+
+            GenericMethodTest();
+
             ArrayListTest();
 
             IfTest();
@@ -39,6 +62,38 @@ namespace WZL.CSharp.SampleApp
             TypesTest();
 
             HelloWorldTest();
+        }
+
+        private static void GenericClassTest()
+        {
+            var printer = new Printer<string>();
+            printer.Print("Hello");
+
+            var numbersPrinter = new Printer<int>();
+            numbersPrinter.Print(100);
+
+            var device = new Device();
+            var devicesPrinter = new Printer<Device>();
+            devicesPrinter.Print(device);
+        }
+
+        private static void GenericMethodTest()
+        {
+            var device = new Device();
+
+            var voltage = device.GetMeasure<float>();
+            var bit = device.GetMeasure<bool>();
+            var time = device.GetMeasure<DateTime>();
+            var numbers = device.GetMeasure<int>();
+        }
+
+        private static void DynamicTest()
+        {
+            dynamic x = 100;
+
+            x++;
+
+            x = "Hello";
         }
 
         private static void ArrayListTest()

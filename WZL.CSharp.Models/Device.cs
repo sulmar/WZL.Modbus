@@ -31,19 +31,58 @@ namespace WZL.CSharp.Models
 
         public string Manufacture { get; set; }
 
+        public float CurrentValue { get; set; }
 
-        public float GetMeasure()
+
+        // Metoda generyczna
+        // (jest to szablon metody na podstawie której 
+        // generowany jest kod do obsługi podanego typu)
+        public TMeasure GetMeasure<TMeasure>()
         {
             Console.WriteLine($"Connecting to {SlaveId}");
 
-            float result = 5.05f;
+            TMeasure result = default(TMeasure);
 
             Console.WriteLine($"Result {result} from {SlaveId}");
 
             return result;
         }
 
-    
+
+        //public float GetFloatMeasure()
+        //{
+        //    Console.WriteLine($"Connecting to {SlaveId}");
+
+        //    float result = 5.05f;
+
+        //    Console.WriteLine($"Result {result} from {SlaveId}");
+
+        //    return result;
+        //}
+
+
+        //public bool GetBoolMeasure()
+        //{
+        //    Console.WriteLine($"Connecting to {SlaveId}");
+
+        //    bool result = true;
+
+        //    Console.WriteLine($"Result {result} from {SlaveId}");
+
+        //    return result;
+        //}
+
+        //public DateTime GetDatetimeMeasure()
+        //{
+        //    Console.WriteLine($"Connecting to {SlaveId}");
+
+        //    DateTime result = DateTime.Now;
+
+        //    Console.WriteLine($"Result {result} from {SlaveId}");
+
+        //    return result;
+        //}
+
         public Device()
         {
             this.Manufacture = "Lumel";
