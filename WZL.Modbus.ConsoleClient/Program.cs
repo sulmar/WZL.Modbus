@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO.Ports;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -26,6 +27,7 @@ namespace WZL.Modbus.ConsoleClient
                 Console.WriteLine("(B)inary");
                 Console.WriteLine("(A)nalog");
                 Console.WriteLine("(N)etwork");
+                Console.WriteLine("(S)erial");
 
                 response = Console.ReadKey(true);
 
@@ -36,11 +38,46 @@ namespace WZL.Modbus.ConsoleClient
                     case 'B': SetBinaryTest(); break;
                     case 'A': SetAnalogTest(); break;
                     case 'N': GetACVoltageTest(); break;
+                    case 'S': SerialPortTest(); break;
                 }
             }
             while (response.Key != ConsoleKey.Escape);
 
 
+        }
+
+
+        private static void SerialPortTest()
+        {
+            var slaveId = byte.Parse(ConfigurationManager.AppSettings["SM4"]);
+            var serialPort = ConfigurationManager.AppSettings["serialPort"];
+            var baudRate = int.Parse(ConfigurationManager.AppSettings["baudRate"]);
+            var dataBits = int.Parse(ConfigurationManager.AppSettings["dataBits"]);
+            var parity = (Parity) Enum.Parse(typeof(Parity), ConfigurationManager.AppSettings["parity"]);
+            var stopBits = (StopBits) Enum.Parse(typeof(StopBits), ConfigurationManager.AppSettings["stopBits"]);
+
+            ushort startAddress = 2200;
+            
+            using (var port = new SerialPort(serialPort, baudRate, parity, dataBits, stopBits))
+            using (var master = ModbusSerialMaster.CreateRtu(port))
+            {
+                port.Open();
+
+                Console.WriteLine("Connected.");
+
+                // Przykładowe wartości
+                bool[] outputs = { true, false, false, true };
+
+                // Zapis wielu rejestrów
+                master.WriteMultipleCoils(slaveId, startAddress, outputs);
+
+                // Odczyt wielu rejestrów
+                bool[] inputs = master.ReadCoils(slaveId, startAddress, 4);
+
+                // Wyświetlenie
+                Console.WriteLine(String.Join(", ", inputs));
+
+            }
         }
 
         private static void GetACVoltageTest()
