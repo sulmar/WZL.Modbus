@@ -47,6 +47,8 @@ namespace WZL.Modbus.ConsoleClient
         }
 
 
+
+
         private static void SerialPortTest()
         {
             var slaveId = byte.Parse(ConfigurationManager.AppSettings["SM4"]);

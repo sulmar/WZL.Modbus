@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converter.cs" />
+    <Compile Include="N10Service.cs" />
     <Compile Include="N30HVoltageService.cs" />
     <Compile Include="N30UCurrentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
