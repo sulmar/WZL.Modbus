@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace WZL.CSharp.SampleApp
     {
         static void Main(string[] args)
         {
+            ListTest();
+
             IfTest();
 
             LoadFileTest();
@@ -36,6 +39,27 @@ namespace WZL.CSharp.SampleApp
             TypesTest();
 
             HelloWorldTest();
+        }
+
+        private static void ListTest()
+        {
+
+            var floatArray = new float[1000] ;
+
+
+            ArrayList measures = new ArrayList(3);
+
+            measures.Add(4.05f);
+            measures.Add(4.15f);
+            measures.Add(4.35f);
+            measures.Add(4.25f);
+            measures.Add(4.15f);
+
+            foreach (var measure in measures)
+            {
+                Console.WriteLine(measure);
+            }
+
         }
 
         private static void IfTest()
