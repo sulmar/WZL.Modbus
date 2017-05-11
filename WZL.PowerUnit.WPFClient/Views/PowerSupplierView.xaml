@@ -19,19 +19,34 @@
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
-
+        
         <GroupBox Header="Zasilacz" >
-            <StackPanel>
-                <Label Content="Napięcie" />
-                <Label Content="{Binding Voltage}" />
+            
+            <DockPanel>
+
+                <StackPanel DockPanel.Dock="Top">
+                    
+                    <Label Content="Napięcie" />
+                    <Label Content="{Binding Voltage}" />
                 
-                <!--<TextBox Text="{Binding Voltage}" />-->
+                    <!--<TextBox Text="{Binding Voltage}" />-->
                 
-                <Label Content="Prąd" />
-                <TextBox Text="{Binding Current}" />
-                <Label Content="Moc" />
-                <TextBox Text="{Binding Power}" />
-            </StackPanel>
+                    <Label Content="Prąd" />
+                    <TextBox Text="{Binding Current}" />
+                    <Label Content="Moc" />
+                    <TextBox Text="{Binding Power}" />
+
+                </StackPanel>
+                
+
+                <ListBox
+                        Margin="0,10,0,0"
+                    ItemsSource="{Binding Voltages}" 
+                         ScrollViewer.VerticalScrollBarVisibility="Visible"
+                         
+                         />
+                
+            </DockPanel>
             
         </GroupBox>
 
