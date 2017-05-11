@@ -55,12 +55,17 @@
                 
                 
                 <Label Content="Napięcie" />
-                <TextBox Text="5 V" />
-                <Slider Minimum="0" Maximum="40" />
+                <TextBox Text="{Binding SettingsVoltage, UpdateSourceTrigger=PropertyChanged}" />
+                <Slider Minimum="{Binding SettingsVoltageLowLimit}" 
+                        Maximum="{Binding SettingsVoltageHighLimit}" 
+                        Value="{Binding SettingsVoltage}" />
 
                 <Label Content="Prąd" />
-                <TextBox Text="4 A" />
-                <Slider Minimum="0" Maximum="60" />
+                <TextBox Text="{Binding SettingsCurrent, UpdateSourceTrigger=PropertyChanged}" />
+                <Slider Minimum="{Binding SettingsCurrentLowLimit}" 
+                        Maximum="{Binding SettingsCurrentHighLimit}" 
+                        Value="{Binding SettingsCurrent}"
+                        />
 
                 <DockPanel>
                     <Button Width="100" Content="Ustaw" Margin="5" />

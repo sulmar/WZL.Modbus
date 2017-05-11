@@ -15,6 +15,7 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 {
     public class PowerSupplierViewModel : BaseViewModel
     {
+        #region Voltage
 
         private float voltage;
 
@@ -25,11 +26,13 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
             {
                 voltage = value;
 
-                OnPropertyChanged("Voltage");
+                OnPropertyChanged(nameof(Voltage));
             }
         }
 
+        #endregion
 
+        #region Current
 
         private float current;
 
@@ -39,14 +42,18 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
             set
             {
                 current = value;
-                OnPropertyChanged("Current");
+                OnPropertyChanged(nameof(Current));
             }
         }
 
-        // ObservableCollection - lista, która wysyła zdarzenie (sygnał) INotifyCollectionChanged 
-        // przy dodaniu lub usunięciu elementu do listy
+        #endregion
+
+        #region Voltages
 
         private object _lock = new object();
+
+        // ObservableCollection - lista, która wysyła zdarzenie (sygnał) INotifyCollectionChanged 
+        // przy dodaniu lub usunięciu elementu do listy
 
         private ObservableCollection<float> voltages;
 
@@ -62,6 +69,65 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
                 OnPropertyChanged("Voltages");
             }
         }
+
+        #endregion
+
+
+        #region SettingsCurrent
+
+        public float SettingsCurrentLowLimit { get; } = 0;
+        public float SettingsCurrentHighLimit { get; } = 60;
+
+
+        private float settingsCurrent;
+
+        public float SettingsCurrent
+        {
+            get { return settingsCurrent; }
+            set {
+
+                if (value < SettingsCurrentLowLimit)
+                    settingsCurrent = SettingsCurrentLowLimit;
+                else
+              if (value > SettingsCurrentHighLimit)
+                    settingsCurrent = SettingsCurrentHighLimit;
+                else
+                    settingsCurrent = value;
+
+                OnPropertyChanged(nameof(SettingsCurrent));
+            }
+        }
+
+
+        #endregion
+
+        #region SettingsVoltage
+
+        public float SettingsVoltageLowLimit { get; } = 0;
+        public float SettingsVoltageHighLimit { get; } = 40;
+        
+
+        private float settingsVoltage;
+
+        public float SettingsVoltage
+        {
+            get { return settingsVoltage; }
+            set
+            {
+                // Walidacja zakresu
+                if (value < SettingsVoltageLowLimit)
+                    settingsVoltage = SettingsVoltageLowLimit;
+                else
+                if (value > SettingsVoltageHighLimit)
+                    settingsVoltage = SettingsVoltageHighLimit;
+                else
+                    settingsVoltage = value;
+
+                OnPropertyChanged(nameof(SettingsVoltage));
+            }
+        }
+
+        #endregion
 
 
         public float Power { get; set; }
