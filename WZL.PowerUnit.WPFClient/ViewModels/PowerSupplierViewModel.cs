@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Data;
 using System.Windows.Threading;
+using WZL.EAServices;
 using WZL.LumelServices;
 using WZL.MockServices;
 using WZL.Services;
@@ -135,12 +136,24 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
         private IAnalogInput VoltageService;
         private IAnalogInput CurrentService;
 
+        private IVoltageOutputService VoltageOutputService;
+        private ICurrentOutputService CurrentOutputService;
+        private IOutputService OutputService;
+
         private Timer timer;
 
         public PowerSupplierViewModel()
         {
             VoltageService = new N30HVoltageService();
             CurrentService = new N30UCurrentService();
+
+            VoltageOutputService = new SupplierService();
+            CurrentOutputService = new SupplierService();
+            OutputService = new SupplierService();
+
+            VoltageOutputService.Set(4.5f);
+            CurrentOutputService.Set(2.1f);
+            OutputService.On();
 
             Voltages = new ObservableCollection<float>();
 
@@ -149,6 +162,19 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
             timer.Elapsed += Timer_Elapsed;
 
             timer.Enabled = true;
+
+
+            var service = new MockMultimetrService();
+
+
+            IVoltageInputService _voltageService = service;
+
+            _voltageService.Get();
+
+            ICurrentInputService _currentService = service;
+            _currentService.Get();
+
+
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)

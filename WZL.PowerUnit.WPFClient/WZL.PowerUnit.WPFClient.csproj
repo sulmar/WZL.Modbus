@@ -134,6 +134,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WZL.EAServices\WZL.EAServices.csproj">
+      <Project>{67D7C002-47D9-488A-B808-88B6CB1FECD0}</Project>
+      <Name>WZL.EAServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WZL.LumelServices\WZL.LumelServices.csproj">
       <Project>{b7410939-5ff2-40bb-8c04-90d2549e1c3f}</Project>
       <Name>WZL.LumelServices</Name>

@@ -27,14 +27,14 @@
                 <StackPanel DockPanel.Dock="Top">
                     
                     <Label Content="Napięcie" />
-                    <Label Content="{Binding Voltage}" />
+                    <TextBox Text="{Binding Voltage, StringFormat=N4}" />
                 
                     <!--<TextBox Text="{Binding Voltage}" />-->
                 
                     <Label Content="Prąd" />
-                    <TextBox Text="{Binding Current}" />
+                    <TextBox Text="{Binding Current, StringFormat=N4}" />
                     <Label Content="Moc" />
-                    <TextBox Text="{Binding Power}" />
+                    <TextBox Text="{Binding Power, StringFormat=N4}" />
 
                 </StackPanel>
                 
@@ -55,13 +55,13 @@
                 
                 
                 <Label Content="Napięcie" />
-                <TextBox Text="{Binding SettingsVoltage, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Text="{Binding SettingsVoltage, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" />
                 <Slider Minimum="{Binding SettingsVoltageLowLimit}" 
                         Maximum="{Binding SettingsVoltageHighLimit}" 
                         Value="{Binding SettingsVoltage}" />
 
                 <Label Content="Prąd" />
-                <TextBox Text="{Binding SettingsCurrent, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Text="{Binding SettingsCurrent, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" />
                 <Slider Minimum="{Binding SettingsCurrentLowLimit}" 
                         Maximum="{Binding SettingsCurrentHighLimit}" 
                         Value="{Binding SettingsCurrent}"
