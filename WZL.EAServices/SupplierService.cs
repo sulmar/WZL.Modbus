@@ -10,7 +10,8 @@ using WZL.Services;
 
 namespace WZL.EAServices
 {
-    public class SupplierService : IVoltageOutputService, ICurrentOutputService, IOutputService
+    public class SupplierService : IVoltageOutputService, ICurrentOutputService, IOutputService, 
+        IVoltageInputService, ICurrentInputService
     {
         private string hostname;
         private int port;
@@ -51,6 +52,7 @@ namespace WZL.EAServices
             using (var client = new TcpClient(hostname, port))
             using (var stream = client.GetStream())
             {
+                client.SendTimeout = 1000; // ms
                 stream.Write(data, 0, data.Length);
 
                 byte[] lf = { (byte)'\n' };
@@ -78,6 +80,37 @@ namespace WZL.EAServices
             var response = Send("OUTPUT?");
 
             var result = response.StartsWith("ON");
+
+            return result;
+        }
+
+        float IVoltageInputService.Get()
+        {
+            var response = Send("MEAS:VOLT?");
+
+            float result = Convert(response);
+
+            return result;
+        }
+
+        private static float Convert(string response)
+        {
+            // Zwraca pozycję znaku
+            var index = response.IndexOf(' ');
+
+            // Wycina określoną ilość znaków od podanej pozycji 
+            var number = response.Substring(0, index);
+
+            float result = float.Parse(number, CultureInfo.InvariantCulture);
+
+            return result;
+        }
+
+        float ICurrentInputService.Get()
+        {
+            var response = Send("MEAS:CURRENT?");
+
+            float result = Convert(response);
 
             return result;
         }

@@ -54,6 +54,37 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
         #endregion
 
+
+
+        private float supplierVoltage;
+
+        public float SupplierVoltage
+        {
+            get { return supplierVoltage; }
+            set {
+                supplierVoltage = value;
+                OnPropertyChanged(nameof(SupplierVoltage));
+            }
+        }
+
+
+        #region SupplierCurrent
+
+        private float supplierCurrent;
+
+        public float SupplierCurrent
+        {
+            get { return supplierCurrent; }
+            set
+            {
+                supplierCurrent = value;
+                OnPropertyChanged(nameof(SupplierCurrent));
+            }
+        }
+
+
+        #endregion
+
         #region Current
 
         private float current;
@@ -160,6 +191,8 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
         private IVoltageOutputService VoltageOutputService;
         private ICurrentOutputService CurrentOutputService;
         private IOutputService OutputService;
+        private IVoltageInputService SupplierVoltageInputService;
+        private ICurrentInputService SupplierCurrentInputService;
 
         private Timer timer;
 
@@ -237,10 +270,8 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
             VoltageOutputService = new SupplierService();
             CurrentOutputService = new SupplierService();
             OutputService = new SupplierService();
-
-
-         
-
+            SupplierVoltageInputService = new SupplierService();
+            SupplierCurrentInputService = new SupplierService();
 
             Voltages = new ObservableCollection<float>();
 
@@ -260,6 +291,9 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
             Voltage = VoltageService.Get();
             Current = CurrentService.Get();
+
+            SupplierVoltage = SupplierVoltageInputService.Get();
+            SupplierCurrent = SupplierCurrentInputService.Get();
 
             Voltages.Add(Voltage);
         }

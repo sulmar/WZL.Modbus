@@ -20,20 +20,20 @@
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
         
-        <GroupBox Header="Zasilacz" >
+        <GroupBox Header="Mierniki" >
             
             <DockPanel>
 
                 <StackPanel DockPanel.Dock="Top">
                     
-                    <Label Content="Napięcie" />
+                    <Label Content="Napięcie [V]" />
                     <TextBox Text="{Binding Voltage, StringFormat=N4}" />
                 
                     <!--<TextBox Text="{Binding Voltage}" />-->
                 
-                    <Label Content="Prąd" />
+                    <Label Content="Prąd [A]" />
                     <TextBox Text="{Binding Current, StringFormat=N4}" />
-                    <Label Content="Moc" />
+                    <Label Content="Moc [W]" />
                     <TextBox Text="{Binding Power, StringFormat=N4}" />
 
                 </StackPanel>
@@ -50,40 +50,57 @@
             
         </GroupBox>
 
-        <GroupBox Header="Nastawy" Grid.Column="1">
-            <StackPanel>
-                
-                
-                <Label Content="Napięcie" />
-                <TextBox Text="{Binding SettingsVoltage, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" />
-                <Slider Minimum="{Binding SettingsVoltageLowLimit}" 
-                        Maximum="{Binding SettingsVoltageHighLimit}" 
-                        Value="{Binding SettingsVoltage, UpdateSourceTrigger=PropertyChanged}" />
+        <StackPanel Grid.Column="1">
 
-                <Label Content="Prąd" />
-                <TextBox Text="{Binding SettingsCurrent, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" />
-                <Slider Minimum="{Binding SettingsCurrentLowLimit}" 
-                        Maximum="{Binding SettingsCurrentHighLimit}" 
-                        Value="{Binding SettingsCurrent, UpdateSourceTrigger=PropertyChanged}"
-                        />
+            <GroupBox Header="Zasilacz" >
+                <StackPanel>
 
-                <DockPanel>
-                    <Button Width="100" Content="Ustaw" Margin="5"
-                            Command="{Binding SetCommand}"
+
+                    <Label Content="Napięcie [V]" />
+                    <TextBox Text="{Binding SettingsVoltage, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" />
+                    <Slider Minimum="{Binding SettingsVoltageLowLimit}" 
+                            Maximum="{Binding SettingsVoltageHighLimit}" 
+                            Value="{Binding SettingsVoltage, UpdateSourceTrigger=PropertyChanged}" />
+
+                    <Label Content="Prąd [A]" />
+                    <TextBox Text="{Binding SettingsCurrent, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" />
+                    <Slider Minimum="{Binding SettingsCurrentLowLimit}" 
+                            Maximum="{Binding SettingsCurrentHighLimit}" 
+                            Value="{Binding SettingsCurrent, UpdateSourceTrigger=PropertyChanged}"
                             />
 
-                    <ToggleButton 
-                        IsChecked="{Binding IsPowerOn}"
-                        Command="{Binding PowerSwitchCommand}"
-                        Content="Włącz / wyłącz" 
-                      
-                        Margin="5">
+                    <DockPanel>
+                        <Button Width="100" Content="Ustaw" Margin="5"
+                                Command="{Binding SetCommand}"
+                                />
 
+                        <ToggleButton 
+                            IsChecked="{Binding IsPowerOn}"
+                            Command="{Binding PowerSwitchCommand}"
+                            Content="Włącz / wyłącz" 
                       
-                    </ToggleButton>
-                </DockPanel>
-            </StackPanel>
-        </GroupBox>
-        
+                            Margin="5">
+
+
+                        </ToggleButton>
+                    </DockPanel>
+                </StackPanel>
+            </GroupBox>
+
+
+            <GroupBox Header="Wartości rzeczywiste">
+                <StackPanel>
+                    <Label Content="Napięcie [V]" />
+                    <TextBox Text="{Binding SupplierVoltage}" />
+
+                    <Label Content="Prąd [A]" />
+                    <TextBox Text="{Binding SupplierCurrent}" />
+
+                </StackPanel>
+            </GroupBox>
+
+
+        </StackPanel>
+
     </Grid>
 </Window>
