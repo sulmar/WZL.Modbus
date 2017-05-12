@@ -13,5 +13,6 @@ namespace WZL.PowerUnit.WPFClient
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

@@ -35,6 +35,8 @@ namespace WZL.Services
         void On();
 
         void Off();
+
+        bool IsOn();
     }
 
     public interface IPowerService

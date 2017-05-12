@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Data;
+using System.Windows.Input;
 using System.Windows.Threading;
 using WZL.EAServices;
 using WZL.LumelServices;
@@ -16,6 +17,26 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 {
     public class PowerSupplierViewModel : BaseViewModel
     {
+
+
+        #region IsPowerOn
+
+        private bool isPowerOn;
+
+        public bool IsPowerOn
+        {
+            get { return isPowerOn; }
+            set
+            {
+                isPowerOn = value;
+                OnPropertyChanged(nameof(IsPowerOn));
+            }
+        }
+
+        #endregion
+
+
+
         #region Voltage
 
         private float voltage;
@@ -142,6 +163,72 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
         private Timer timer;
 
+        #region PowerSwitchCommand
+
+        private ICommand _PowerSwitchCommand;
+
+        public ICommand PowerSwitchCommand
+        {
+            get
+            {
+                if (_PowerSwitchCommand == null)
+                {
+                    _PowerSwitchCommand = new RelayCommand(PowerSwitch);
+                }
+
+                return _PowerSwitchCommand;
+            }
+        }
+
+        private void PowerSwitch()
+        {
+            if (IsPowerOn)
+            {
+                OutputService.On();
+            }
+            else
+            {
+                OutputService.Off();
+            }
+        }
+
+        #endregion
+
+
+        #region SetCommand
+
+        private ICommand _SetCommand;
+
+        public ICommand SetCommand
+        {
+            get
+            {
+                if (_SetCommand == null)
+                {
+                    _SetCommand = new RelayCommand(Set, CanSet);
+                }
+
+                return _SetCommand;
+            }
+        }
+
+        private void Set()
+        {
+            VoltageOutputService.Set(SettingsVoltage);
+            CurrentOutputService.Set(SettingsCurrent);
+        }
+
+        private bool CanSet()
+        {
+
+            // TODO: warunek sterowania sprzętem
+            return SettingsVoltage > 0 && SettingsCurrent > 0;
+        }
+
+        #endregion
+
+
+
         public PowerSupplierViewModel()
         {
             VoltageService = new N30HVoltageService();
@@ -151,9 +238,9 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
             CurrentOutputService = new SupplierService();
             OutputService = new SupplierService();
 
-            VoltageOutputService.Set(4.5f);
-            CurrentOutputService.Set(2.1f);
-            OutputService.On();
+
+         
+
 
             Voltages = new ObservableCollection<float>();
 
@@ -164,25 +251,17 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
             timer.Enabled = true;
 
 
-            var service = new MockMultimetrService();
-
-
-            IVoltageInputService _voltageService = service;
-
-            _voltageService.Get();
-
-            ICurrentInputService _currentService = service;
-            _currentService.Get();
-
-
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
+
+            IsPowerOn = OutputService.IsOn();
+
             Voltage = VoltageService.Get();
             Current = CurrentService.Get();
 
-           Voltages.Add(Voltage);
+            Voltages.Add(Voltage);
         }
     }
 }

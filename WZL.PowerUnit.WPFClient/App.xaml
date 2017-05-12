@@ -4,6 +4,35 @@
              xmlns:local="clr-namespace:WZL.PowerUnit.WPFClient"
              StartupUri="Views/PowerSupplierView.xaml">
     <Application.Resources>
+
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+
+        <Style TargetType="ToggleButton">
+            <Setter Property="Background" Value="Red" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Height" Value="50" />
+
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="Green"/>
+                    <Setter Property="Width" Value="200" />
+                </Trigger>
+            </Style.Triggers>
+            
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Green" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Height" Value="50" />
+        </Style>
          
     </Application.Resources>
 </Application>

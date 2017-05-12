@@ -26,6 +26,13 @@ namespace WZL.PowerUnit.WPFClient.Views
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+  
+  
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+         
         }
     }
 }

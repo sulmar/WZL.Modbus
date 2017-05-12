@@ -34,15 +34,17 @@ namespace WZL.EAServices
 
         void ICurrentOutputService.Set(float value)
         {
+            Send("SYST:LOCK ON");
             Send($"CURRENT {value.ToString(CultureInfo.InvariantCulture)}");
         }
 
         void IVoltageOutputService.Set(float value)
         {
+            Send("SYST:LOCK ON");
             Send($"VOLT {value.ToString(CultureInfo.InvariantCulture)}");
         }
 
-        private void Send(string command)
+        private string Send(string command)
         {
             byte[] data = Encoding.ASCII.GetBytes(command);
 
@@ -54,7 +56,30 @@ namespace WZL.EAServices
                 byte[] lf = { (byte)'\n' };
 
                 stream.Write(lf, 0, 1);
+
+                // Pobieranie odpowiedzi
+                if (command.IndexOf("?") >= 0)
+                {
+                    byte[] buffer = new byte[128];
+
+                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
+
+                    string response = Encoding.ASCII.GetString(buffer);
+
+                    return response;
+                }
+                else
+                    return string.Empty;
             }
+        }
+
+        public bool IsOn()
+        {
+            var response = Send("OUTPUT?");
+
+            var result = response.StartsWith("ON");
+
+            return result;
         }
     }
 }
