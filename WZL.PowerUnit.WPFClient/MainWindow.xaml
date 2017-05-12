@@ -6,33 +6,33 @@
         xmlns:local="clr-namespace:WZL.PowerUnit.WPFClient"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
- 
-    
-    
-    <StackPanel>
+
+        <TabControl TabStripPlacement="Top">
+            <TabItem Header="Tab 1">
+
+                <StackPanel>
+
+                    <Button Margin="5" Content="Button 1"/>
+                    <Button Margin="5" Content="Button 2"/>
+                    <Button Margin="5" Content="Button 3"/>
+
+                </StackPanel>
+
+            </TabItem>
+
+                <TabItem Header="Tab 2">
+                    
+                    <StackPanel>
+
+                        <Button Margin="5" Content="Button 6"/>
+                        <Button Margin="5" Content="Button 7"/>
+
+                    </StackPanel>
+            </TabItem>
+
+        </TabControl>
 
 
-        <Button 
-            Background="Green"
-            Foreground="White"
-            Width="200" 
-            Height="50">
-
-            <StackPanel>
-            <Slider Width="200" />
-            <Slider Width="200" />
-
-            </StackPanel>
-        </Button>
-
-
-        <Button
-            Width="150"
-            Height="70"
-            Background="Blue"
-            >Send</Button>
-            
-      
-    </StackPanel>
+   
     
 </Window>

@@ -93,6 +93,15 @@ namespace WZL.EAServices
             return result;
         }
 
+        float ICurrentInputService.Get()
+        {
+            var response = Send("MEAS:CURRENT?");
+
+            float result = Convert(response);
+
+            return result;
+        }
+
         private static float Convert(string response)
         {
             // Zwraca pozycję znaku
@@ -106,13 +115,6 @@ namespace WZL.EAServices
             return result;
         }
 
-        float ICurrentInputService.Get()
-        {
-            var response = Send("MEAS:CURRENT?");
-
-            float result = Convert(response);
-
-            return result;
-        }
+      
     }
 }
