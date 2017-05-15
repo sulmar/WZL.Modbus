@@ -19,8 +19,6 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 {
     public class PowerSupplierViewModel : BaseViewModel
     {
-
-
         #region IsPowerOn
 
         private bool isPowerOn;
@@ -56,41 +54,9 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
         #endregion
 
+        public MeasureSearchCriteria MeasureSearchCriteria { get; set; }
 
-        //#region Voltage
-
-        //private float voltage;
-
-        //public float Voltage
-        //{
-        //    get { return voltage; }
-        //    set
-        //    {
-        //        voltage = value;
-
-        //        OnPropertyChanged(nameof(Voltage));
-        //    }
-        //}
-
-        //#endregion
-
-        //#region Current
-
-        //private float current;
-
-        //public float Current
-        //{
-        //    get { return current; }
-        //    set
-        //    {
-        //        current = value;
-        //        OnPropertyChanged(nameof(Current));
-        //    }
-        //}
-
-        //#endregion
-
-        //public float Power { get; set; }
+        #region SupplierVoltage
 
         private float supplierVoltage;
 
@@ -103,6 +69,7 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
             }
         }
 
+        #endregion
 
         #region SupplierCurrent
 
@@ -120,8 +87,6 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
 
         #endregion
-
-      
 
         #region Voltages
 
@@ -147,6 +112,23 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
         #endregion
 
+        #region Measures
+
+        private List<Measure> _Measures;
+
+        public List<Measure> Measures
+        {
+            get { return _Measures; }
+            set
+            {
+                _Measures = value;
+
+                OnPropertyChanged(nameof(Measures));
+            }
+        }
+
+
+        #endregion
 
         #region SettingsCurrent
 
@@ -308,8 +290,37 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
         #endregion
 
+
+        #region SearchCommand
+
+        private ICommand _SearchCommand;
+
+        public ICommand SearchCommand
+        {
+            get
+            {
+                if (_SearchCommand == null)
+                {
+                    _SearchCommand = new RelayCommand(Search);
+                }
+
+                return _SearchCommand;
+            }
+        }
+
+        private void Search()
+        {
+            Measures = MeasuresService.Get(MeasureSearchCriteria);
+        }
+
+        #endregion
+
+
+
         public PowerSupplierViewModel()
         {
+            MeasureSearchCriteria = new MeasureSearchCriteria();
+
             VoltageService = new N30HVoltageService();
             CurrentService = new N30UCurrentService();
 

@@ -130,6 +130,39 @@
 
                 </StackPanel>
             </TabItem>
+
+            <TabItem Header="Archiwum">
+                <DockPanel>
+                    <GroupBox Header="Kryteria" DockPanel.Dock="Top">
+                        <DockPanel>
+
+                            <Button DockPanel.Dock="Right" Width="200" 
+                                    Content="Szukaj"
+                                    Command="{Binding SearchCommand}"
+                                    />
+
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Okres:" VerticalAlignment="Center"/>
+                                <DatePicker SelectedDate="{Binding MeasureSearchCriteria.StartDate}" Width="150" Margin="5" />
+                                <DatePicker SelectedDate="{Binding MeasureSearchCriteria.EndDate}" Width="150" Margin="5" />
+                            </StackPanel>
+
+                        </DockPanel>
+                    </GroupBox>
+
+                    <DataGrid ItemsSource="{Binding Measures}" AutoGenerateColumns="False" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding MeasureId}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Data" Binding="{Binding MeasureDate}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Napięcie [V]" Binding="{Binding Voltage, StringFormat=N4}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Prąd [A]" Binding="{Binding Current, StringFormat=N4}" IsReadOnly="True"  />
+                            <DataGridTextColumn Header="Moc [W]" Binding="{Binding Power, StringFormat=N4}" IsReadOnly="True"  />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+                </DockPanel>
+            </TabItem>
             
         </TabControl>
         

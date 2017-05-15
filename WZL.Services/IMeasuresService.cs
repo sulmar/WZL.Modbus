@@ -9,6 +9,8 @@ namespace WZL.Services
 {
     public interface IMeasuresService
     {
-        void Add(Measure measure); 
+        void Add(Measure measure);
+
+        List<Measure> Get(MeasureSearchCriteria criteria);
     }
 }

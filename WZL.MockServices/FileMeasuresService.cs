@@ -34,5 +34,10 @@ namespace WZL.MockServices
                 stream.WriteLine($"{measure.MeasureDate}, {measure.Voltage.ToString(CultureInfo.InvariantCulture)}, {measure.Current.ToString(CultureInfo.InvariantCulture)}, {measure.Power.ToString(CultureInfo.InvariantCulture)}");
             }
         }
+
+        public List<Measure> Get(MeasureSearchCriteria criteria)
+        {
+            throw new NotSupportedException();
+        }
     }
 }

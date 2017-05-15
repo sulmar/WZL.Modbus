@@ -22,5 +22,15 @@ namespace WZL.PowerUnit.DAL
                 context.SaveChanges();
             }
         }
+
+        public List<Measure> Get(MeasureSearchCriteria criteria)
+        {
+            using (var context = new PowerUnitContext())
+            {
+                var measures = context.Measures.ToList();
+
+                return measures;
+            }
+        }
     }
 }
