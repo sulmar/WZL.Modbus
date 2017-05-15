@@ -300,6 +300,7 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
         private void Save()
         {
+            this.Measure
             // TODO: Zapis pomiaru
         }
 

@@ -41,8 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAnalogInput.cs" />
+    <Compile Include="IMeasuresService.cs" />
     <Compile Include="IVoltageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WZL.PowerUnit.Models\WZL.PowerUnit.Models.csproj">
+      <Project>{98032B36-F6F4-4A4C-AC73-D6CF76D4ABDE}</Project>
+      <Name>WZL.PowerUnit.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
