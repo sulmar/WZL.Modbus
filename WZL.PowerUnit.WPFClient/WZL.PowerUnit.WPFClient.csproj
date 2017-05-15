@@ -63,7 +63,16 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -124,6 +133,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -146,6 +156,10 @@
     <ProjectReference Include="..\WZL.MockServices\WZL.MockServices.csproj">
       <Project>{07B4BFC0-DCA7-4824-B05A-A5D8953228E7}</Project>
       <Name>WZL.MockServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WZL.PowerUnit.DAL\WZL.PowerUnit.DAL.csproj">
+      <Project>{1A74095B-0F1D-4842-80A4-51E76C275A7F}</Project>
+      <Name>WZL.PowerUnit.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\WZL.PowerUnit.Models\WZL.PowerUnit.Models.csproj">
       <Project>{98032B36-F6F4-4A4C-AC73-D6CF76D4ABDE}</Project>

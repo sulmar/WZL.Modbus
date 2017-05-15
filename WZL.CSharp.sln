@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WZL.EAServices", "WZL.EASer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WZL.PowerUnit.Models", "WZL.PowerUnit.Models\WZL.PowerUnit.Models.csproj", "{98032B36-F6F4-4A4C-AC73-D6CF76D4ABDE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WZL.PowerUnit.DAL", "WZL.PowerUnit.DAL\WZL.PowerUnit.DAL.csproj", "{1A74095B-0F1D-4842-80A4-51E76C275A7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{98032B36-F6F4-4A4C-AC73-D6CF76D4ABDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98032B36-F6F4-4A4C-AC73-D6CF76D4ABDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98032B36-F6F4-4A4C-AC73-D6CF76D4ABDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A74095B-0F1D-4842-80A4-51E76C275A7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A74095B-0F1D-4842-80A4-51E76C275A7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A74095B-0F1D-4842-80A4-51E76C275A7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A74095B-0F1D-4842-80A4-51E76C275A7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

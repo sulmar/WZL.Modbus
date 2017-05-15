@@ -11,6 +11,7 @@ using System.Windows.Threading;
 using WZL.EAServices;
 using WZL.LumelServices;
 using WZL.MockServices;
+using WZL.PowerUnit.DAL;
 using WZL.PowerUnit.Models;
 using WZL.Services;
 
@@ -215,6 +216,8 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
         private IVoltageInputService SupplierVoltageInputService;
         private ICurrentInputService SupplierCurrentInputService;
 
+        private IMeasuresService MeasuresService;
+
         private Timer timer;
 
         #region PowerSwitchCommand
@@ -300,8 +303,7 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
         private void Save()
         {
-            this.Measure
-            // TODO: Zapis pomiaru
+            MeasuresService.Add(this.Measure);
         }
 
         #endregion
@@ -316,6 +318,10 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
             OutputService = new SupplierService();
             SupplierVoltageInputService = new SupplierService();
             SupplierCurrentInputService = new SupplierService();
+
+         //    MeasuresService = new FileMeasuresService("measures.csv");
+
+            MeasuresService = new DbMeasuresService();
 
             Voltages = new ObservableCollection<float>();
 
