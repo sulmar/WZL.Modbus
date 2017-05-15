@@ -25,9 +25,32 @@ namespace WZL.PowerUnit.DAL
 
         public List<Measure> Get(MeasureSearchCriteria criteria)
         {
+
+            var endDate = criteria.EndDate.AddDays(1);
+
             using (var context = new PowerUnitContext())
             {
-                var measures = context.Measures.ToList();
+                // składnia za pomocą wyrażeń lambda
+                 
+                var measures = context.Measures
+                    .Where(x => x.MeasureDate >= criteria.StartDate)
+                    .Where(measure => measure.MeasureDate < endDate)
+                    .OrderBy(measure => measure.MeasureDate)
+                    .ToList();
+
+                   
+
+                // składnia podobna do SQL
+
+                //var measures = (
+                //                   from measure in context.Measures
+                //                   where measure.MeasureDate >= criteria.StartDate
+                //                      && measure.MeasureDate < endDate
+                //                   orderby measure.MeasureDate
+                //                   select measure
+                //                )
+                //               .ToList();
+                              
 
                 return measures;
             }
