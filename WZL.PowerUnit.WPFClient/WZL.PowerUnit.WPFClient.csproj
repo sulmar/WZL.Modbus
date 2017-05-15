@@ -147,6 +147,10 @@
       <Project>{07B4BFC0-DCA7-4824-B05A-A5D8953228E7}</Project>
       <Name>WZL.MockServices</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WZL.PowerUnit.Models\WZL.PowerUnit.Models.csproj">
+      <Project>{98032B36-F6F4-4A4C-AC73-D6CF76D4ABDE}</Project>
+      <Name>WZL.PowerUnit.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WZL.Services\WZL.Services.csproj">
       <Project>{bd18e523-b6e3-4fef-9ff5-9010157b6e71}</Project>
       <Name>WZL.Services</Name>

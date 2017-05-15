@@ -11,6 +11,7 @@ using System.Windows.Threading;
 using WZL.EAServices;
 using WZL.LumelServices;
 using WZL.MockServices;
+using WZL.PowerUnit.Models;
 using WZL.Services;
 
 namespace WZL.PowerUnit.WPFClient.ViewModels
@@ -35,26 +36,60 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
         #endregion
 
+        #region Measure
 
-
-        #region Voltage
-
-        private float voltage;
-
-        public float Voltage
+        private Measure _Measure;
+        public Measure Measure
         {
-            get { return voltage; }
+            get
+            {
+                return _Measure;
+            }
+
             set
             {
-                voltage = value;
-
-                OnPropertyChanged(nameof(Voltage));
+                _Measure = value;
+                OnPropertyChanged(nameof(Measure));
             }
         }
 
         #endregion
 
 
+        //#region Voltage
+
+        //private float voltage;
+
+        //public float Voltage
+        //{
+        //    get { return voltage; }
+        //    set
+        //    {
+        //        voltage = value;
+
+        //        OnPropertyChanged(nameof(Voltage));
+        //    }
+        //}
+
+        //#endregion
+
+        //#region Current
+
+        //private float current;
+
+        //public float Current
+        //{
+        //    get { return current; }
+        //    set
+        //    {
+        //        current = value;
+        //        OnPropertyChanged(nameof(Current));
+        //    }
+        //}
+
+        //#endregion
+
+        //public float Power { get; set; }
 
         private float supplierVoltage;
 
@@ -85,21 +120,7 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
         #endregion
 
-        #region Current
-
-        private float current;
-
-        public float Current
-        {
-            get { return current; }
-            set
-            {
-                current = value;
-                OnPropertyChanged(nameof(Current));
-            }
-        }
-
-        #endregion
+      
 
         #region Voltages
 
@@ -183,7 +204,7 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
         #endregion
 
 
-        public float Power { get; set; }
+     
 
         private IAnalogInput VoltageService;
         private IAnalogInput CurrentService;
@@ -260,7 +281,29 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
         #endregion
 
+        #region SaveCommand
 
+        private ICommand _SaveCommand;
+
+        public ICommand SaveCommand
+        {
+            get
+            {
+                if (_SaveCommand == null)
+                {
+                    _SaveCommand = new RelayCommand(Save);
+                }
+
+                return _SaveCommand;
+            }
+        }
+
+        private void Save()
+        {
+            // TODO: Zapis pomiaru
+        }
+
+        #endregion
 
         public PowerSupplierViewModel()
         {
@@ -289,13 +332,16 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
             IsPowerOn = OutputService.IsOn();
 
-            Voltage = VoltageService.Get();
-            Current = CurrentService.Get();
+            var voltage = VoltageService.Get();
+            var current = CurrentService.Get();
+            var power = 0;
+
+            this.Measure = new Measure(DateTime.Now, voltage, current, power); 
 
             SupplierVoltage = SupplierVoltageInputService.Get();
             SupplierCurrent = SupplierCurrentInputService.Get();
 
-            Voltages.Add(Voltage);
+            Voltages.Add(this.Measure.Voltage);
         }
     }
 }
