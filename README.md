@@ -15,7 +15,8 @@
 
 
 ## Przydatne narzędzia
-- eCon - aplikacja do konfigurowania urządzeń firmy Lumel http://www.lumel.com.pl/en/download/programmer_for_lumel_products/econ/
+- [eCon](http://www.lumel.com.pl/en/download/programmer_for_lumel_products/econ/) - aplikacja do konfigurowania urządzeń firmy Lumel 
+- [PD8Config](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL2VuL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvMzQ2/pd8config_install_v2.1.exe.zip) - aplikacja do konfigurowania konwertera PD8
 - Modbus Simulator http://www.plcsimulator.org/
 
 ## Biblioteki
