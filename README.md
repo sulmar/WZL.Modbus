@@ -22,3 +22,10 @@ http://www.elektroautomatik.de/en/interfaces-ifab.html
 6. Utwórz instancję usługi w PowerSupplierViewModel 
 7. Wywołaj metodę do pobrania pomiaru i przypisz ją do utworzonej właściwości
 8. W widoku PowerSupplierView umieść np. TextBox i zbinduj do właściwości z pomiarem
+
+## Projekty
+- WZL.PowerUnit.WPFClient - aplikacja WPF (Views i ViewModels)
+- WZL.Services - interfejsy
+- WZL.LumelServices - implementacja komunikacji z urządzeniami firmy Lumel
+- WZL.EAServices - implementacja komunikacji z zasilaczem EA
+- WZL.MockServices - implementacja udawanych urządzeń
