@@ -24,6 +24,14 @@
 PM> Install-Package NModbus4
 ~~~
 
+## Konfiguracja
+
+### PD8
+![Konfiguracja](https://content.screencast.com/users/Sulmar/folders/Jing/media/abcfbf61-3ec6-4c0a-b18b-5f431bbe962e/pd8-config.png)
+
+Tryb Industrial Automation - umożliwia komunikację po TCP. Dopuszcza wielu klientów typu master.
+
+
 ## W jaki sposób wyświetlić nowy pomiar?
 1. Utwórz interfejs w projekcie WZL.Services
 2. Utwórz implementację usługi np. w WZL.LumelServices
@@ -33,6 +41,19 @@ PM> Install-Package NModbus4
 6. Utwórz instancję usługi w PowerSupplierViewModel 
 7. Wywołaj metodę do pobrania pomiaru i przypisz ją do utworzonej właściwości
 8. W widoku PowerSupplierView umieść np. TextBox i zbinduj do właściwości z pomiarem
+
+## W jaki sposób zapisać pomiar do bazy danych?
+
+1. Utwórz klasę w modelu WZL.PowerUnit.Models
+2. Dodak właściwość Id
+3. Dodaj do kontekstu obsługę klasy w WZL.PowerUnit.DAL
+4. Utwórz interfejs w WZL.Services
+5. Utwórz implementację interfejsu do zapisu do bazy danych w WZL.PowerUnit.DAL
+6. Utwórz komendę np. SaveThreePhaseMeasureCommand 
+do zapisu w klasie ViewModel np. PowerSupplierViewModel 
+7. Dodaj wywołanie metody zapisu  
+8. Podepnij komendę do przycisku w widoku PowerSupplierView
+
 
 ## Projekty
 - WZL.PowerUnit.WPFClient - aplikacja WPF (Views i ViewModels)
