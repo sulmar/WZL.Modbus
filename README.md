@@ -29,7 +29,7 @@ PM> Install-Package NModbus4
 ### PD8
 ![Konfiguracja](https://content.screencast.com/users/Sulmar/folders/Jing/media/abcfbf61-3ec6-4c0a-b18b-5f431bbe962e/pd8-config.png)
 
-
+Tryb Industrial Automation - umożliwia komunikację po TCP. Dopuszcza wielu klientów typu master.
 
 
 ## W jaki sposób wyświetlić nowy pomiar?
