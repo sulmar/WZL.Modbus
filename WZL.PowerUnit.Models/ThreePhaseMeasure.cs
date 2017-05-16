@@ -8,6 +8,8 @@ namespace WZL.PowerUnit.Models
 {
     public class ThreePhaseMeasure : Base
     {
+        public int Id { get; set; }
+
         public float Frequency { get; set; }
 
         public Phase L1 { get; set; }

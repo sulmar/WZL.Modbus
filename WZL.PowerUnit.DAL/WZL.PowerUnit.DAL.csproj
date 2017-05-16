@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbMeasuresService.cs" />
+    <Compile Include="DbThreePhaseMeasuresService.cs" />
     <Compile Include="PowerUnitContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

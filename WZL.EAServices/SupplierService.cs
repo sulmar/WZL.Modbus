@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using WZL.Services;
 
@@ -15,6 +17,8 @@ namespace WZL.EAServices
     {
         private string hostname;
         private int port;
+
+        private TcpClient client;
 
 
         public SupplierService()
@@ -36,24 +40,34 @@ namespace WZL.EAServices
         void ICurrentOutputService.Set(float value)
         {
             Send("SYST:LOCK ON");
+
             Send($"CURRENT {value.ToString(CultureInfo.InvariantCulture)}");
         }
 
         void IVoltageOutputService.Set(float value)
         {
             Send("SYST:LOCK ON");
+
             Send($"VOLT {value.ToString(CultureInfo.InvariantCulture)}");
         }
 
         private string Send(string command)
         {
+
             byte[] data = Encoding.ASCII.GetBytes(command);
+
+            Trace.WriteLine("Connecting...");
 
             using (var client = new TcpClient(hostname, port))
             using (var stream = client.GetStream())
             {
+               
+
                 client.SendTimeout = 1000; // ms
+                client.ReceiveTimeout = 1000;
                 stream.Write(data, 0, data.Length);
+
+                Trace.WriteLine($"Sent: {command} ");
 
                 byte[] lf = { (byte)'\n' };
 
@@ -67,6 +81,9 @@ namespace WZL.EAServices
                     int bytesRead = stream.Read(buffer, 0, buffer.Length);
 
                     string response = Encoding.ASCII.GetString(buffer);
+
+                    Trace.WriteLine($"Received: {response} ");
+
 
                     return response;
                 }

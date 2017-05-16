@@ -218,6 +218,7 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
         private IThreePhaseInputService ThreePhaseInputService;
 
         private IMeasuresService MeasuresService;
+        private IThreePhaseMeasuresService ThreePhaseMeasuresService;
 
         private Timer timer;
 
@@ -310,6 +311,31 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
         #endregion
 
 
+        #region SaveThreePhaseMeasureCommand
+
+        private ICommand _SaveThreePhaseMeasureCommand;
+
+        public ICommand SaveThreePhaseMeasureCommand
+        {
+            get
+            {
+                if (_SaveThreePhaseMeasureCommand==null)
+                {
+                    _SaveThreePhaseMeasureCommand = new RelayCommand(SaveThreePhaseMeasure);
+                }
+
+                return _SaveThreePhaseMeasureCommand;
+            }
+        }
+
+        private void SaveThreePhaseMeasure()
+        {
+            ThreePhaseMeasuresService.Add(ThreePhaseMeasure);
+        }
+
+        #endregion  
+
+
         #region SearchCommand
 
         private ICommand _SearchCommand;
@@ -354,6 +380,8 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
             //    MeasuresService = new FileMeasuresService("measures.csv");
 
             MeasuresService = new DbMeasuresService();
+            ThreePhaseMeasuresService = new DbThreePhaseMeasuresService();
+
 
             Voltages = new ObservableCollection<float>();
 
@@ -369,8 +397,7 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
 
-            IsPowerOn = OutputService.IsOn();
-
+          
             var voltage = VoltageService.Get();
             var current = CurrentService.Get();
             var power = 0;
@@ -378,6 +405,7 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
             this.Measure = new Measure(DateTime.Now, voltage, current, power);
             this.ThreePhaseMeasure = ThreePhaseInputService.Get();
 
+            IsPowerOn = OutputService.IsOn();
             SupplierVoltage = SupplierVoltageInputService.Get();
             SupplierCurrent = SupplierCurrentInputService.Get();
 

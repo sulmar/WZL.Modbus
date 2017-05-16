@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IAnalogInput.cs" />
     <Compile Include="IMeasuresService.cs" />
+    <Compile Include="IThreePhaseMeasuresService.cs" />
     <Compile Include="IVoltageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

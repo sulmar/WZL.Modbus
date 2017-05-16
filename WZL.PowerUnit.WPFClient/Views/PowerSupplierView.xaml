@@ -136,6 +136,11 @@
                 
                 <DockPanel>
 
+                    <!-- Przyciski -->
+                    <StackPanel DockPanel.Dock="Bottom">
+                        <Button Content="Zapisz" Command="{Binding SaveThreePhaseMeasureCommand}" />
+                    </StackPanel>
+
                     <!-- Fazy -->
                     
                     <Grid DockPanel.Dock="Bottom">
@@ -214,6 +219,7 @@
                                 <TextBox Text="{Binding ThreePhaseMeasure.Frequency, StringFormat=N1}" />
                             </StackPanel>
                     </GroupBox>
+
                     
                 </DockPanel>
             </TabItem>

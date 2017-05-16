@@ -13,6 +13,8 @@ namespace WZL.PowerUnit.DAL
 
         // Klasy, które mają być utrwalane w bazie danych
         public DbSet<Measure> Measures { get; set; }
+        public DbSet<ThreePhaseMeasure> ThreePhaseMeasures { get; set; }
+
 
         // W konstruktorze podajemy nazwę wpisu 
         // w pliku konfiguracyjnym w sekcji connection strings
