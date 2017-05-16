@@ -1,4 +1,6 @@
-# WZL.CSharp
+# Szkolenie Komunikacja z Modbus i SPCI w C#
+
+## Sprzęt
 | Opis   | Model   | SlaveId  |   |   |
 |---|---|---|---|---|
 | moduł wyjść binarnych   | SM4  | 2  |   |   |
