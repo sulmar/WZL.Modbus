@@ -13,7 +13,7 @@
 | zasilacz | PS9040  | 10.1.1.124:5025  | [link](http://www.elektroautomatik.de/en/interfaces-ifab.html)  |   |
 
 
-[Sprzęt](https://content.screencast.com/users/Sulmar/folders/Default/media/26572c0d-2b92-4b14-bfed-9e7cc055a05a/DSC_0749.png)
+![Sprzęt](https://content.screencast.com/users/Sulmar/folders/Default/media/26572c0d-2b92-4b14-bfed-9e7cc055a05a/DSC_0749.png)
 
 ## Przydatne narzędzia
 - [eCon](http://www.lumel.com.pl/en/download/programmer_for_lumel_products/econ/) - aplikacja do konfigurowania urządzeń firmy Lumel 
