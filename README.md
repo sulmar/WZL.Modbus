@@ -13,6 +13,8 @@
 | zasilacz | PS9040  | 10.1.1.124:5025  | [link](http://www.elektroautomatik.de/en/interfaces-ifab.html)  |   |
 
 
+[Sprzęt](https://content.screencast.com/users/Sulmar/folders/Default/media/26572c0d-2b92-4b14-bfed-9e7cc055a05a/DSC_0749.png)
+
 ## Przydatne narzędzia
 - [eCon](http://www.lumel.com.pl/en/download/programmer_for_lumel_products/econ/) - aplikacja do konfigurowania urządzeń firmy Lumel 
 - [PD8Config](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL2VuL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvMzQ2/pd8config_install_v2.1.exe.zip) - aplikacja do konfigurowania konwertera PD8
