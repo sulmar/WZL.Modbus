@@ -158,6 +158,11 @@
                                 <TextBox Text="{Binding ThreePhaseMeasure.L1.ReactivePower, StringFormat=N1}" />
                                 <Label Content="Moc pozorna [W]" />
                                 <TextBox Text="{Binding ThreePhaseMeasure.L1.ApparentPower, StringFormat=N1}" />
+                                <Label Content="Współczynnik mocy czynnej" />
+                                <TextBox Text="{Binding ThreePhaseMeasure.L1.PowerFactor, StringFormat=N1}" />
+                                <Label Content="Stosunek mocy biernej do czynnej" />
+                                <TextBox Text="{Binding ThreePhaseMeasure.L1.PhaseFactor, StringFormat=N1}" />
+
                             </StackPanel>  
                         </GroupBox>
 
@@ -174,6 +179,10 @@
                                 <TextBox Text="{Binding ThreePhaseMeasure.L2.ReactivePower, StringFormat=N1}" />
                                 <Label Content="Moc pozorna [W]" />
                                 <TextBox Text="{Binding ThreePhaseMeasure.L2.ApparentPower, StringFormat=N1}" />
+                                <Label Content="Współczynnik mocy czynnej" />
+                                <TextBox Text="{Binding ThreePhaseMeasure.L1.PowerFactor, StringFormat=N1}" />
+                                <Label Content="Stosunek mocy biernej do czynnej" />
+                                <TextBox Text="{Binding ThreePhaseMeasure.L1.PhaseFactor, StringFormat=N1}" />
                             </StackPanel>
                         </GroupBox>
 
@@ -190,6 +199,10 @@
                                 <TextBox Text="{Binding ThreePhaseMeasure.L3.ReactivePower, StringFormat=N1}" />
                                 <Label Content="Moc pozorna [W]" />
                                 <TextBox Text="{Binding ThreePhaseMeasure.L3.ApparentPower, StringFormat=N1}" />
+                                <Label Content="Współczynnik mocy czynnej" />
+                                <TextBox Text="{Binding ThreePhaseMeasure.L1.PowerFactor, StringFormat=N1}" />
+                                <Label Content="Stosunek mocy biernej do czynnej" />
+                                <TextBox Text="{Binding ThreePhaseMeasure.L1.PhaseFactor, StringFormat=N1}" />
                             </StackPanel>
                         </GroupBox>
                     </Grid>
