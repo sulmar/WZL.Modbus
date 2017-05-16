@@ -24,6 +24,14 @@
 PM> Install-Package NModbus4
 ~~~
 
+## Konfiguracja
+
+### PD8
+![Konfiguracja](https://content.screencast.com/users/Sulmar/folders/Jing/media/abcfbf61-3ec6-4c0a-b18b-5f431bbe962e/pd8-config.png)
+
+
+
+
 ## W jaki sposób wyświetlić nowy pomiar?
 1. Utwórz interfejs w projekcie WZL.Services
 2. Utwórz implementację usługi np. w WZL.LumelServices
