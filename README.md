@@ -15,6 +15,7 @@
 
 
 ## Przydatne narzędzia
+- eCon - aplikacja do konfigurowania urządzeń firmy Lumel http://www.lumel.com.pl/en/download/programmer_for_lumel_products/econ/
 - Modbus Simulator http://www.plcsimulator.org/
 
 ## Biblioteki
