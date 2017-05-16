@@ -1,16 +1,16 @@
 # Szkolenie Komunikacja z Modbus i SPCI w C#
 
 ## Sprzęt
-| Opis   | Model   | Adres  |   |   |
+| Opis   | Model   | Adres  | Dokumentacja  |   |
 |---|---|---|---|---|
-| moduł wyjść binarnych   | SM4  | 2  |  [dokumentacja](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL3BsL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvNDA2/sm4_07d_instrukcja_obslugi.pdf)  |   |
-| miernik temperatury  | N30U  | 3  | [dokumentacja](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL3BsL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvNjE1/n30u07a.pdf)|   |
-| miernik natężenia prądu  | N30U  | 4  | [dokumentacja](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL3BsL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvNjE1/n30u07a.pdf)  |   |
-| miernik napięcia stałego | N30H  | 5  | [dokumentacja](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL3BsL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvNjE3/n30h07a.pdf)  |   |
-| wyjścia analogowe  | S4AO  | 6  | [dokumentacja](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL3BsL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvNzQ4/s4ao07.pdf)  |   |
-| miernik parametrów sieci  | N10  | 7  | [dokumentacja](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL3BsL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvMzQ0/n10_io_interf_pl_05.01.2010.pdf)  |   |
-| konwerter Ethernet RS 485 | PD8  | 10.1.1.122:502  | [dokumentacja](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL3BsL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvMzk4/pd807f.pdf)  |   |
-| zasilacz | PS9040  | 10.1.1.124:5025  | [dokumentacja](http://www.elektroautomatik.de/en/interfaces-ifab.html)  |   |
+| moduł wyjść binarnych   | SM4  | 2  |  [link](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL3BsL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvNDA2/sm4_07d_instrukcja_obslugi.pdf)  |   |
+| miernik temperatury  | N30U  | 3  | [link](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL3BsL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvNjE1/n30u07a.pdf)|   |
+| miernik natężenia prądu  | N30U  | 4  | [link](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL3BsL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvNjE1/n30u07a.pdf)  |   |
+| miernik napięcia stałego | N30H  | 5  | [link](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL3BsL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvNjE3/n30h07a.pdf)  |   |
+| wyjścia analogowe  | S4AO  | 6  | [link](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL3BsL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvNzQ4/s4ao07.pdf)  |   |
+| miernik parametrów sieci  | N10  | 7  | [link](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL3BsL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvMzQ0/n10_io_interf_pl_05.01.2010.pdf)  |   |
+| konwerter Ethernet RS 485 | PD8  | 10.1.1.122:502  | [link](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL3BsL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvMzk4/pd807f.pdf)  |   |
+| zasilacz | PS9040  | 10.1.1.124:5025  | [link](http://www.elektroautomatik.de/en/interfaces-ifab.html)  |   |
 
 
 ## Przydatne narzędzia
