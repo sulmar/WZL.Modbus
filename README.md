@@ -27,6 +27,7 @@ PM> Install-Package NModbus4
 ## Konfiguracja
 
 ### PD8
+![PD8Konfig](https://content.screencast.com/users/Sulmar/folders/Jing/media/6ed26d80-38a7-4db4-9f8c-932761de9fbd/2017-05-16_1555.png)
 ![Konfiguracja](https://content.screencast.com/users/Sulmar/folders/Jing/media/abcfbf61-3ec6-4c0a-b18b-5f431bbe962e/pd8-config.png)
 
 Tryb Industrial Automation - umożliwia komunikację po TCP. Dopuszcza wielu klientów typu master.
