@@ -34,9 +34,15 @@ PM> Install-Package NModbus4
 ![PD8Config](https://content.screencast.com/users/Sulmar/folders/Jing/media/34e17557-788e-4c02-b9f2-5bcace7795ab/2017-05-16_1612.png)
 
 3. Wybierz opcję Otwórz stronę WWW
+
+4. Wybierz tryb **Industrial Automation** - umożliwia komunikację po TCP. Dopuszcza wielu klientów typu master.
+![Konfiguracja](https://content.screencast.com/users/Sulmar/folders/Jing/media/d1ab6149-a0a7-419b-b91c-4356c076538f/2017-05-04_2017.png)
+
+5. Ustaw parametry transmisji
 ![Konfiguracja](https://content.screencast.com/users/Sulmar/folders/Jing/media/abcfbf61-3ec6-4c0a-b18b-5f431bbe962e/pd8-config.png)
 
-Tryb Industrial Automation - umożliwia komunikację po TCP. Dopuszcza wielu klientów typu master.
+
+
 
 
 ## W jaki sposób wyświetlić nowy pomiar?
