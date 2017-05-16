@@ -14,6 +14,13 @@
 | zasilacz | PS9040  | 10.1.1.124:5025  | [dokumentacja](http://www.elektroautomatik.de/en/interfaces-ifab.html)  |   |
 
 
+## Przydatne narzędzia
+- Modbus Simulator http://www.plcsimulator.org/
+
+## Biblioteki
+~~~
+PM> Install-Package NModbus4
+~~~
 
 ## W jaki sposób wyświetlić nowy pomiar?
 1. Utwórz interfejs w projekcie WZL.Services
