@@ -34,6 +34,19 @@ PM> Install-Package NModbus4
 7. Wywołaj metodę do pobrania pomiaru i przypisz ją do utworzonej właściwości
 8. W widoku PowerSupplierView umieść np. TextBox i zbinduj do właściwości z pomiarem
 
+## W jaki sposób zapisać pomiar do bazy danych?
+
+1. Utwórz klasę w modelu WZL.PowerUnit.Models
+2. Dodak właściwość Id
+3. Dodaj do kontekstu obsługę klasy w WZL.PowerUnit.DAL
+4. Utwórz interfejs w WZL.Services
+5. Utwórz implementację interfejsu do zapisu do bazy danych w WZL.PowerUnit.DAL
+6. Utwórz komendę np. SaveThreePhaseMeasureCommand 
+do zapisu w klasie ViewModel np. PowerSupplierViewModel 
+7. Dodaj wywołanie metody zapisu  
+8. Podepnij komendę do przycisku w widoku PowerSupplierView
+
+
 ## Projekty
 - WZL.PowerUnit.WPFClient - aplikacja WPF (Views i ViewModels)
 - WZL.Services - interfejsy
