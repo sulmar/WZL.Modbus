@@ -20,6 +20,9 @@ namespace WZL.LumelServices
         const ushort startAddress = 7000;
         const ushort numRegisters = 60;
 
+
+        const float infinity = 1E+20f;
+
         public N10Service()
         {
             hostname = ConfigurationManager.AppSettings["hostname"];
@@ -60,7 +63,12 @@ namespace WZL.LumelServices
                 ApparentPower = Converter.ConvertToFloat(inputs, startIndex + 8),
                 PowerFactor = Converter.ConvertToFloat(inputs, startIndex + 10),
                 PhaseFactor = Converter.ConvertToFloat(inputs, startIndex + 12),
+
+              
             };
+
+            if (phase.PowerFactor == infinity) phase.PowerFactor = 0;
+            if (phase.PhaseFactor == infinity) phase.PhaseFactor = 0;
 
             return phase;
         }
