@@ -54,6 +54,24 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
 
         #endregion
 
+
+        #region ThreePhaseMeasure
+
+        private ThreePhaseMeasure _ThreePhaseMeasure;
+
+        public ThreePhaseMeasure ThreePhaseMeasure
+        {
+            get { return _ThreePhaseMeasure; }
+            set {
+                _ThreePhaseMeasure = value;
+                OnPropertyChanged(nameof(ThreePhaseMeasure));
+
+            }
+        }
+
+
+        #endregion
+
         public MeasureSearchCriteria MeasureSearchCriteria { get; set; }
 
         #region SupplierVoltage
@@ -197,6 +215,7 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
         private IOutputService OutputService;
         private IVoltageInputService SupplierVoltageInputService;
         private ICurrentInputService SupplierCurrentInputService;
+        private IThreePhaseInputService ThreePhaseInputService;
 
         private IMeasuresService MeasuresService;
 
@@ -330,7 +349,9 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
             SupplierVoltageInputService = new SupplierService();
             SupplierCurrentInputService = new SupplierService();
 
-         //    MeasuresService = new FileMeasuresService("measures.csv");
+            ThreePhaseInputService = new N10Service();
+
+            //    MeasuresService = new FileMeasuresService("measures.csv");
 
             MeasuresService = new DbMeasuresService();
 
@@ -354,7 +375,8 @@ namespace WZL.PowerUnit.WPFClient.ViewModels
             var current = CurrentService.Get();
             var power = 0;
 
-            this.Measure = new Measure(DateTime.Now, voltage, current, power); 
+            this.Measure = new Measure(DateTime.Now, voltage, current, power);
+            this.ThreePhaseMeasure = ThreePhaseInputService.Get();
 
             SupplierVoltage = SupplierVoltageInputService.Get();
             SupplierCurrent = SupplierCurrentInputService.Get();

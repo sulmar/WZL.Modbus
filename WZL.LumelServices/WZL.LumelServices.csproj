@@ -52,6 +52,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WZL.PowerUnit.Models\WZL.PowerUnit.Models.csproj">
+      <Project>{98032b36-f6f4-4a4c-ac73-d6cf76d4abde}</Project>
+      <Name>WZL.PowerUnit.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WZL.Services\WZL.Services.csproj">
       <Project>{BD18E523-B6E3-4FEF-9FF5-9010157B6E71}</Project>
       <Name>WZL.Services</Name>
