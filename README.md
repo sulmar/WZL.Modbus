@@ -28,9 +28,10 @@ PM> Install-Package NModbus4
 
 ### PD8
 1. Uruchom aplikację PD8Config. Aplikacja powinna odnaleźć konwertery w sieci.
-![PD8Konfig](https://content.screencast.com/users/Sulmar/folders/Jing/media/6ed26d80-38a7-4db4-9f8c-932761de9fbd/2017-05-16_1555.png)
+![PD8Config](https://content.screencast.com/users/Sulmar/folders/Jing/media/6ed26d80-38a7-4db4-9f8c-932761de9fbd/2017-05-16_1555.png)
 
 2. Ustaw adres IP
+![PD8Config](https://content.screencast.com/users/Sulmar/folders/Jing/media/34e17557-788e-4c02-b9f2-5bcace7795ab/2017-05-16_1612.png)
 
 3. Wybierz opcję Otwórz stronę WWW
 ![Konfiguracja](https://content.screencast.com/users/Sulmar/folders/Jing/media/abcfbf61-3ec6-4c0a-b18b-5f431bbe962e/pd8-config.png)
