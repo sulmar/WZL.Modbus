@@ -27,6 +27,11 @@ wykonany w [Balsamiq](https://balsamiq.com/)
 ![Archiwum](https://d2qcyw-ch3301.files.1drv.com/y4mxoQMutuNkCpn_ujLQ0xhD2OWVa5Y0N8YhxUjyBeE1TYSncn78mj8iHpSGH1oN39kmaDpoPmBKY_4mIX3IlzhrAq9AD2I29d6Xfo-YcWZmbiU5RL90CV74hv2CCHdmn69yJk_HphHQkPura8lJ5vTLSsqqRtnor5ON-PuMvZMnK1ITKdNEqM1hj2mOJkmpwjqJxy5xeSuIHl-2gKGj22bLg?width=615&height=400&cropmode=none)
 
 
+## Realizacja
+
+![Miernik trójfazowy](https://dmqfyw-ch3301.files.1drv.com/y4maAVQ0XccETDRAHzjMFcUxzCfqWipT2pKv2c3QosAEt8xvAPbLSnRqc1_y9izw3holVcr8_5vl2FPnMUu7CuXBQ4248rqbDpR6o34q4H9IDnuMXe64ea0yzgH49lyZHeE-8zewpKu2vyeh47yZNvT8dIJtCpKjZ3X2EYBs4yG0ACofSi6-JU48rsvtFcyWD7xmgCnM2jM-DamR3Hn2qFjyw?width=792&height=598&cropmode=none)
+
+
 ## Przydatne narzędzia
 - [eCon](http://www.lumel.com.pl/en/download/programmer_for_lumel_products/econ/) - aplikacja do konfigurowania urządzeń firmy Lumel 
 - [PD8Config](http://www.lumel.com.pl/download/Z2Z4L2x1bWVsL2VuL2RlZmF1bHRfbXVsdGlsaXN0YV9wbGlrb3cudjAvMzQ2/pd8config_install_v2.1.exe.zip) - aplikacja do konfigurowania konwertera PD8
