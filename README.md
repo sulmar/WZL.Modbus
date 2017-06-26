@@ -1,5 +1,5 @@
-# Szkolenie Komunikacja z Modbus i SPCI w C#
-# dla Wojskowych Zakładów Lotniczych nr 1 w Łodzi
+# Komunikacja z Modbus i SPCI w C#
+* Kod źródłowy powstał w ramach szkolenia dla **Wojskowych Zakładów Lotniczych nr 1 w Łodzi**
 
 ## Sprzęt
 | Opis   | Model   | Adres  | Dokumentacja  |   |
